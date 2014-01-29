@@ -1,6 +1,6 @@
 S--Reborn-KK-Repository ChangeLOG
  
-''S+ Reborn Is A Project licensed by Apache License''#########################################
+###########################''S+ Reborn Is A Project licensed by Apache License''#########################################
 
 ##RELEASE 1##
 
