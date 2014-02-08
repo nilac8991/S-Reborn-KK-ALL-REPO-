@@ -28,4 +28,17 @@ S--Reborn-KK-Repository ChangeLOG
 - Updated Album to version 5.3.A.0.22 with Photo Sildeshow and Photo Editor(NEW)
 - Updated Movies to version 5.3.A.0.18 with VideoUnlimited
 
+##RELEASE 3##
 
+#Rebranded Project Name#
+
+- Merged latest changes made by ADC Team
+- Updated K^ Kernel
+- Fixed the problem with the not showing correctly search bar in the app drawer
+- Fixed the problem with launcher crash when trying to uninstall an app
+- Updated Xperia widgets
+- Album fully functional Now!
+- Removed Viper FX Engine (Temporally), use DSP manager instead
+- Updated Performance Control 
+- Updated WALKMAN (Fixed some bugs, and partially fixed the download music info)
+- And some other changes that i forget in this moment ;)
