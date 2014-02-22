@@ -42,3 +42,18 @@ S--Reborn-KK-Repository ChangeLOG
 - Updated Performance Control 
 - Updated WALKMAN (Fixed some bugs, and partially fixed the download music info)
 - And some other changes that i forget in this moment ;)
+
+
+##RELEASE 4##
+
+- Merged Latest changes made by ADC Team (Release 2)
+- Updatad K^ Kernel
+- Updated Gapps
+- Re Added ViperFX Engine
+- Removed SoundEnhancement
+- Reborn Tweaks V3
+- Updated Xperia Notes (New Graphic!)
+- Added for this version Fast Boot (So if you don't see the bootanimation don't panic i'ts normal,just wait till the screen appears)
+- Updated Clocks Widgets
+- Removed OTA Updater 
+- Updated Performance Control 
