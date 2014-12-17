@@ -1,0 +1,418 @@
+ui_print(" ");
+ui_print(" ");
+ui_print("***************************************************");
+ui_print("              XOSP Project Presents                ");
+ui_print("          Reborn Addons V2 for S+ Reborn           ");
+ui_print("***************************************************");
+ui_print(" ");
+ui_print(" ");	   
+
+
+assert(getprop("ro.product.name") == "sreborn_ariesve" || getprop("ro.product.name") == "sreborn_ariesve" || 
+       getprop("ro.product.device") == "GT-I9001" || getprop("ro.build.product") == "GT-I9001" || abort("This package is only for \"S+ Reborn users!!\"; this is a \"" + getprop("ro.build.display.id") + "\ROM\"."););
+
+mount("ext4", "EMMC", "/dev/block/mmcblk0p15", "/system");
+mount("ext4", "EMMC", "/dev/block/mmcblk0p17", "/data");
+
+set_progress(0.1);
+
+set_progress(0.2);
+
+set_progress(0.25);
+
+set_progress(0.3);
+ui_print("@Installing....");
+
+
+##Utility##
+
+if file_getprop("/tmp/aroma-data/utility.prop","item.0.1") == "1" 
+then
+ui_print("Installing Lifelog<<<<<");
+package_extract_file("customize/APKs-Data/APKs-Data_Utility/Lifelog.apk", "/data/app/Lifelog.apk");
+endif;
+
+if file_getprop("/tmp/aroma-data/utility.prop","item.0.2") == "1"
+then 
+ui_print("Installing Smart Connect<<<<<");
+package_extract_file("customize/APKs-Data/APKs-Data_Utility/Smart Connect.apk", "/data/app/Smart Connect.apk");
+endif;
+
+if file_getprop("/tmp/aroma-data/utility.prop","item.0.3") == "1"
+then 
+ui_print("Installing Recorder<<<<<");
+package_extract_file("customize/APKs-Data/APKs-Data_Utility/Recorder.apk", "/data/app/Recorder.apk");
+endif;
+
+if file_getprop("/tmp/aroma-data/utility.prop","item.0.4") == "1" 
+then 
+ui_print("Installing Converter<<<<<");
+package_extract_file("customize/APKs-Data/APKs-Data_Utility/Converter.apk", "/data/app/Converter.apk");
+endif;
+
+if file_getprop("/tmp/aroma-data/utility.prop","item.0.5") == "1" 
+then 
+ui_print("Installing Sony's Backup and Restore<<<<<");
+package_extract_file("customize/APKs-Data/APKs-Data_Utility/SyncHub.apk", "/data/app/SyncHub.apk");
+endif;
+
+##Reborn Tweaks##
+
+if
+file_getprop("/tmp/aroma-data/reborntweaks.prop","selected.0") == "1"
+then
+ui_print(" ");
+ui_print(" ");
+ui_print("***************************************************");
+ui_print("              XOSP Project Presents                ");
+ui_print("            Reborn Tweaks powered by               ");
+ui_print("	           ◢ PurePerformances™X ◣                ");
+ui_print("***************************************************");
+ui_print(" ");
+ui_print(" ");	   
+package_extract_dir("Tweaks/Performance/setup", "/tmp"); 
+set_perm_recursive(0, 0, 0755, 0755, "/tmp");
+run_program("/sbin/busybox","chmod","-R","0755","/tmp");
+run_program("/sbin/busybox","chown","-R","0.0","/tmp");
+set_perm(0, 0, 0755, "/tmp/busybox");
+run_program("/tmp/busybox","chmod","-R","0755","/tmp");
+run_program("/tmp/busybox","chown","-R","0.0","/tmp");
+run_program("/tmp/busybox","mount","/system");
+run_program("/sbin/busybox","mount","/system");
+run_program("/tmp/busybox","mount","-o","rw,remount","/system");
+run_program("/sbin/busybox","mount","-o","rw,remount","/system");
+run_program("/tmp/busybox","mount","/data");
+run_program("/sbin/busybox","mount","/data");
+run_program("/tmp/busybox","mount","-o","rw,remount","/data");
+run_program("/sbin/busybox","mount","-o","rw,remount","/data");
+run_program("/tmp/busybox","rm","-fr","/system/etc/CrossBreeder");
+run_program("/tmp/busybox","mkdir","-p","/system/etc/CrossBreeder");
+run_program("/tmp/busybox","cp","-f","/tmp/tune2fs","/system/etc/CrossBreeder");
+#run_program("/tmp/busybox","cp","-f","/tmp/libiconv.so.2","/system/etc/CrossBreeder");
+run_program("/tmp/busybox","cp","-f","/tmp/busybox","/system/etc/CrossBreeder");
+set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
+run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
+run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
+run_program("/tmp/busybox", "echo", "Restore", "started.");
+run_program("/tmp/restore_dnsmasq.sh");
+run_program("/tmp/busybox","echo","After","Restore");
+#run_program("/tmp/busybox","mv","-f","/system/etc/hosts","/system/etc/hosts.CBBAK");
+package_extract_dir("Tweaks/Performance/system", "/system");
+run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
+#run_program("/tmp/busybox","cp","-f","/system/etc/CrossBreeder/dnsmasq","/system/bin/dnsmasq.bin");
+delete("/system/bin/dnsmasq.bin");
+run_program("/tmp/busybox", "ls", "-l", "/system/bin/dnsmasq");; 
+set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
+run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
+run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
+#set_perm_recursive(0, 0, 0711, 0444, "/system/etc/CrossBreeder/root");
+#run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/root");
+#run_program("/tmp/busybox","chmod","-R","0444","/system/etc/CrossBreeder/root");
+#run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root");
+#run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root/errors");
+run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/dnrd_root");
+run_program("/tmp/busybox","chmod","-R","0644","/system/etc/CrossBreeder/dnrd_root");
+run_program("/tmp/busybox","chmod","0755","/system/etc/CrossBreeder/dnrd_root");
+ui_print("Setting correct permissions...");
+ui_print(" ");
+#set_perm(0, 0, 0755, "/system/etc/init.d/zzCrossBreeder_initd");
+set_perm(0, 2000, 0755, "/system/xbin/haveged");
+delete("/system/xbin/CB_FileLock");
+set_perm(0, 0, 0755, "/system/etc/CrossBreeder/busybox");
+set_perm(0, 0, 0755, "/system/etc/CrossBreeder/dnrd.10053");
+set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCrossBreeder");
+set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCHECK_NET_DNS");
+set_perm(0, 0, 0755, "/system/bin/dnsmasq");
+set_perm(0, 0, 0755, "/system/bin/dnsmasq_dhcp");
+#set_perm(0, 0, 0644, "/system/etc/CrossBreeder/dnsmasq-host");
+set_perm(0, 0, 0644, "/system/etc/hosts");
+set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
+delete("/system/etc/init.d/00CrossBreeder");
+delete("/system/etc/init.d/zzCrossBreeder");
+delete("/system/etc/init.d/zzCrossBreeder_initd");
+#delete("/system/etc/CrossBreeder/dnsmasq");
+ui_print(" ");
+set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
+run_program("/tmp/busybox","mv","-f","/system/etc/install-recovery.sh.CBBAK","/system/etc/install-recovery.sh");
+run_program("/tmp/install_init_entries.sh");
+#run_program("/tmp/install_hw_entries.sh");
+#run_program("/sbin/busybox","mv","-f","/system/etc/hw_config.sh.CBBAK","/system/etc/hw_config.sh");
+run_program("/tmp/busybox","mv","-f","/system/bin/debuggerd.CBBAK","/system/bin/debuggerd");
+set_perm(0, 2000, 0755, "/system/bin/debuggerd");
+run_program("/tmp/install_debuggerd.sh");
+ui_print(" ");
+run_program("/tmp/busybox","mv","/system/xbin/rngd","/system/xbin/rngd.bak");
+run_program("/tmp/busybox","rm","-fr","/data/rngd.pid");
+run_program("/tmp/busybox","mkdir","/data/rngd.pid/");
+run_program("/tmp/busybox","chown","0:0","/data/rngd.pid");
+run_program("/tmp/busybox","chmod","-R","500","/data/rngd.pid");
+set_perm_recursive(0, 0, 0500, 0500, " /data/rngd.pid/ ");
+run_program("/tmp/busybox","mv","/system/xbin/qrngd","/system/xbin/qrngd.bak");
+run_program("/tmp/busybox","mv","/system/bin/qrngd","/system/bin/qrngd.bak");
+run_program("/tmp/REMOVE_TETHER_BOOST");
+run_program("/tmp/busybox","mv","-f","/system/etc/dnsmasq.conf.CBBAK","/system/etc/dnsmasq.conf");
+run_program("/tmp/busybox","sync");
+#run_program("/tmp/busybox","umount","/system");
+run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
+run_program("/tmp/busybox","sync");
+ui_print("Clearing dalvik-cache");
+ui_print(" ");
+#run_program("/tmp/busybox","umount","/cache");
+run_program("/tmp/busybox","umount","/sd-ext");
+package_extract_dir("Tweaks/Performance/system", "/system");
+package_extract_dir("Tweaks/Performance/data", "/data");
+set_perm_recursive(0, 2000, 0777, 0777, "/system/etc/init.d");
+set_perm_recursive(0, 2000, 0777, 0777, "/system/usr/idc");
+set_perm(0, 0, 0777, "/system/default.prop");
+set_perm(0, 0, 0777, "/system/xbin/sqlite3");
+set_perm(0, 0, 0777, "/system/xbin/zipalign");
+set_perm(0, 0, 0777, "/system/xbin/openvpn");
+set_perm(0, 0, 0777, "/system/lib/libncurses.so");
+set_perm(0, 0, 0777, "/system/lib/libsqlite.so");
+set_perm(0, 0, 0777, "/system/lib/libsqlite_jni.so");
+set_perm(0, 0, 0777, "/system/etc/init.d/S98system_tweak");
+set_perm(0, 0, 0777, "/system/etc/init.d/S70darky_zipalign");
+set_perm(0, 0, 0777, "/system/etc/init.d/sqlite_optimize");
+set_perm(0, 0, 0777, "/system/etc/init.d/ram_optimize");
+set_perm(0, 0, 0777, "/system/etc/init.d/ext4_lagfix");
+set_perm(0, 0, 0777, "/data/local.prop");
+set_perm(0, 0, 0777, "/system/usr/idc/mxt244_ts_input.idc");
+run_program("/tmp/busybox", "mount", "/data");
+run_program("/tmp/busybox", "mount", "/system");
+package_extract_file("Tweaks/Performance/add_to_buildprop.sh", "/tmp/add_to_buildprop.sh");
+set_perm(0, 0, 0777, "/tmp/add_to_buildprop.sh");
+run_program("/tmp/add_to_buildprop.sh");
+endif;
+
+if
+file_getprop("/tmp/aroma-data/reborntweaks.prop","selected.0") == "2"
+then
+ui_print(" ");
+ui_print(" ");
+ui_print("***************************************************");
+ui_print("              XOSP Project Presents                ");
+ui_print("            Reborn Tweaks powered by               ");
+ui_print("	      ★ NITRO X™_SPARK EDITION Tweaks ★          ");
+ui_print("***************************************************");
+ui_print(" ");
+ui_print(" ");
+
+package_extract_dir("Tweaks/Battery/tools", "/tmp");
+set_perm(0, 0, 0755, "/tmp/busybox");
+show_progress(0.200000, 40);
+delete_recursive("/data/tombstones");
+delete_recursive("/data/dalvik-cache");
+delete_recursive("/data/boot-cache");
+delete_recursive("/data/resource-cache");
+delete_recursive("/data/Database");
+delete_recursive("/data/ModBoost");
+delete("/data/*.log");
+delete("/data/system/batterystats.bin");
+delete("/data/zipalign.db");
+delete("/system/xbin/entro");
+delete("/system/xbin/haveged");
+delete("/dev/haveged.pid");
+delete("/system/bin/sqlite3");
+delete("/system/bin/scan");
+delete("/system/bin/dnsmasqdex");
+delete("/system/bin/dnsproxy2dex");
+delete("/system/bin/pixelservdex");
+delete("/system/bin/clean");
+delete("/system/bin/EngineSqlite");
+delete("/system/bin/menu");
+delete("/system/bin/no_mod");
+delete("/system/bin/dns_on");
+delete("/system/bin/dns_off");
+delete("/system/zipalign.db");
+delete("/system/bin/nitro_on");
+delete("/system/bin/nitro_off");
+delete("/system/xbin/boost");
+delete("/system/xbin/openvpn");
+delete("/system/xbin/zipalign");
+delete("/system/xbin/sqlite3");
+delete("/system/bin/seeder");
+delete("/system/lib/libncurses.so");
+delete("/system/bin/busybox");
+delete("/system/xbin/busybox");
+delete("/system/etc/dnsmasq.conf");
+delete_recursive("/system/etc/dnsmasq");
+delete_recursive("/system/etc/crossbreeder");
+delete_recursive("/system/etc/Crossbreeder");
+delete_recursive("/system/etc/CrossBreeder");
+delete_recursive("/system/etc/seeder_scripts");
+delete_recursive("/system/etc/Ads_Nitro");
+delete_recursive("/system/etc/Nitro_Scritpts");
+run_program("/tmp/backup.sh", "");
+run_program("/tmp/busybox","mv","-f","/system/etc/init.d/04apps2sd","/tmp");
+run_program("/tmp/busybox","mv","-f","/system/etc/init.d/40int2ext","/tmp");
+run_program("/tmp/busybox","mv","-f","/system/etc/init.d/45swap2int","/tmp");
+run_program("/tmp/busybox","mv","-f","/system/etc/init.d/50selinuxrelabel","/tmp");
+run_program("/tmp/busybox","mv","-f","/system/etc/init.d/90userinit","/tmp");
+run_program("/tmp/busybox","mv","-f","/system/etc/init.d/swap2int","/tmp");
+run_program("/tmp/busybox","mv","-f","/system/etc/init.d/99SuperSUDaemon","/tmp");
+run_program("/tmp/busybox","mv","-f","/system/etc/init.d/00post-init.sh","/tmp");
+run_program("/tmp/busybox","mv","-f","/system/etc/init.d/enable-oc.sh","/tmp");
+run_program("/tmp/busybox","mv","-f","/system/etc/init.d/11customsettings","/tmp");
+run_program("/tmp/busybox","mv","-f","/system/etc/init.d/00banner","/tmp");
+delete_recursive("/system/etc/init.d");
+show_progress(0.200000, 40);
+package_extract_dir("Tweaks/Battery/data", "/data");
+package_extract_dir("Tweaks/Battery/system", "/system");
+run_program("/tmp/busybox","mv","-f","/tmp/04apps2sd","/system/etc/init.d");
+run_program("/tmp/busybox","mv","-f","/tmp/40int2ext","/system/etc/init.d");
+run_program("/tmp/busybox","mv","-f","/tmp/45swap2int","/system/etc/init.d");
+run_program("/tmp/busybox","mv","-f","/tmp/50selinuxrelabel","/system/etc/init.d");
+run_program("/tmp/busybox","mv","-f","/tmp/90userinit","/system/etc/init.d");
+run_program("/tmp/busybox","mv","-f","/tmp/swap2int","/system/etc/init.d");
+run_program("/tmp/busybox","mv","-f","/tmp/99SuperSUDaemon","/system/etc/init.d");
+run_program("/tmp/busybox","mv","-f","/tmp/00post-init.sh","/system/etc/init.d");
+run_program("/tmp/busybox","mv","-f","/tmp/enable-oc.sh","/system/etc/init.d");
+run_program("/tmp/busybox","mv","-f","/tmp/11customsettings","/system/etc/init.d");
+run_program("/tmp/busybox","mv","-f","/tmp/00banner","/system/etc/init.d");
+show_progress(0.200000, 40);
+set_perm_recursive(0, 0, 0777, 0777, "/data/ModBoost");
+set_perm_recursive(0, 0, 0777, 0777, "/data/Database");
+set_perm(0, 0, 0755, "/system/bin/ads_system");
+set_perm(0, 0, 0755, "/system/bin/dnsmasqdex");
+set_perm(0, 0, 0755, "/system/bin/dnsproxy2dex");
+set_perm(0, 0, 0755, "/system/bin/pixelservdex");
+set_perm(0, 0, 0755, "/system/bin/EngineSqlite");
+set_perm(0, 0, 0755, "/system/bin/menu");
+set_perm(0, 0, 0755, "/system/bin/nitro_off");
+set_perm(0, 0, 0755, "/system/bin/nitro_on");
+set_perm(0, 0, 0755, "/system/bin/no_mod");
+set_perm(0, 0, 0755, "/system/bin/scan");
+set_perm(0, 0, 0755, "/system/xbin/boost");
+set_perm(0, 0, 0755, "/system/xbin/busybox");
+set_perm(0, 0, 0755, "/system/xbin/zipalign");
+set_perm_recursive(0, 0, 0777, 0777, "/system/etc/Ads_Nitro");
+set_perm_recursive(0, 0, 0777, 0777, "/system/etc/Nitro_Scritpts");
+set_perm_recursive(0, 0, 0777, 0777, "/system/etc/init.d");
+set_perm(0, 0, 0777, "/system/etc/init.d");
+set_perm(0, 0, 0755, "/system/xbin/busybox");
+symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
+        "/system/xbin/adjtimex", "/system/xbin/arp", "/system/xbin/ash",
+        "/system/xbin/awk", "/system/xbin/base64", "/system/xbin/basename",
+        "/system/xbin/bbconfig", "/system/xbin/blkid", "/system/xbin/blockdev",
+        "/system/xbin/brctl", "/system/xbin/bunzip2", "/system/xbin/bzcat",
+        "/system/xbin/bzip2", "/system/xbin/cal", "/system/xbin/cat",
+        "/system/xbin/catv", "/system/xbin/chattr", "/system/xbin/chgrp",
+        "/system/xbin/chmod", "/system/xbin/chown", "/system/xbin/chroot",
+        "/system/xbin/clear", "/system/xbin/cmp", "/system/xbin/comm",
+        "/system/xbin/cp", "/system/xbin/cpio", "/system/xbin/crond",
+        "/system/xbin/crontab", "/system/xbin/cut", "/system/xbin/date",
+        "/system/xbin/dc", "/system/xbin/dd", "/system/xbin/depmod",
+        "/system/xbin/devmem", "/system/xbin/df", "/system/xbin/diff",
+        "/system/xbin/dirname", "/system/xbin/dmesg", "/system/xbin/dnsd",
+        "/system/xbin/dos2unix", "/system/xbin/du", "/system/xbin/echo",
+        "/system/xbin/ed", "/system/xbin/egrep", "/system/xbin/env",
+        "/system/xbin/expand", "/system/xbin/expr", "/system/xbin/false",
+        "/system/xbin/fbsplash", "/system/xbin/fdisk", "/system/xbin/fgrep",
+        "/system/xbin/find", "/system/xbin/flash_lock",
+        "/system/xbin/flash_unlock", "/system/xbin/flashcp",
+        "/system/xbin/flock", "/system/xbin/fold", "/system/xbin/free",
+        "/system/xbin/freeramdisk", "/system/xbin/fstrim", "/system/xbin/fsync",
+        "/system/xbin/ftpget", "/system/xbin/ftpput", "/system/xbin/fuser",
+        "/system/xbin/getopt", "/system/xbin/grep", "/system/xbin/groups",
+        "/system/xbin/gunzip", "/system/xbin/gzip", "/system/xbin/halt",
+        "/system/xbin/head", "/system/xbin/hexdump", "/system/xbin/id",
+        "/system/xbin/ifconfig", "/system/xbin/inetd", "/system/xbin/insmod",
+        "/system/xbin/install", "/system/xbin/ionice", "/system/xbin/iostat",
+        "/system/xbin/ip", "/system/xbin/kill", "/system/xbin/killall",
+        "/system/xbin/killall5", "/system/xbin/less", "/system/xbin/ln",
+        "/system/xbin/losetup", "/system/xbin/ls", "/system/xbin/lsattr",
+        "/system/xbin/lsmod", "/system/xbin/lsusb", "/system/xbin/lzcat",
+        "/system/xbin/lzma", "/system/xbin/lzop", "/system/xbin/lzopcat",
+        "/system/xbin/man", "/system/xbin/md5sum", "/system/xbin/mesg",
+        "/system/xbin/mkdir", "/system/xbin/mke2fs", "/system/xbin/mkfifo",
+        "/system/xbin/mkfs.ext2", "/system/xbin/mkfs.vfat",
+        "/system/xbin/mknod", "/system/xbin/mkswap", "/system/xbin/mktemp",
+        "/system/xbin/modinfo", "/system/xbin/modprobe", "/system/xbin/more",
+        "/system/xbin/mount", "/system/xbin/mountpoint", "/system/xbin/mpstat",
+        "/system/xbin/mv", "/system/xbin/nanddump", "/system/xbin/nandwrite",
+        "/system/xbin/nbd-client", "/system/xbin/netstat", "/system/xbin/nice",
+        "/system/xbin/nohup", "/system/xbin/nslookup", "/system/xbin/ntpd",
+        "/system/xbin/od", "/system/xbin/patch", "/system/xbin/pgrep",
+        "/system/xbin/pidof", "/system/xbin/ping", "/system/xbin/pipe_progress",
+        "/system/xbin/pkill", "/system/xbin/pmap", "/system/xbin/poweroff",
+        "/system/xbin/printenv", "/system/xbin/printf", "/system/xbin/ps",
+        "/system/xbin/pstree", "/system/xbin/pwd", "/system/xbin/pwdx",
+        "/system/xbin/rdev", "/system/xbin/readlink", "/system/xbin/realpath",
+        "/system/xbin/renice", "/system/xbin/reset", "/system/xbin/resize",
+        "/system/xbin/rev", "/system/xbin/rm", "/system/xbin/rmdir",
+        "/system/xbin/rmmod", "/system/xbin/route", "/system/xbin/run-parts",
+        "/system/xbin/rx", "/system/xbin/sed", "/system/xbin/seq",
+        "/system/xbin/setconsole", "/system/xbin/setserial",
+        "/system/xbin/setsid", "/system/xbin/sh", "/system/xbin/sha1sum",
+        "/system/xbin/sha256sum", "/system/xbin/sha3sum",
+        "/system/xbin/sha512sum", "/system/xbin/sleep", "/system/xbin/sort",
+        "/system/xbin/split", "/system/xbin/stat", "/system/xbin/strings",
+        "/system/xbin/stty", "/system/xbin/sum", "/system/xbin/swapoff",
+        "/system/xbin/swapon", "/system/xbin/sync", "/system/xbin/sysctl",
+        "/system/xbin/tac", "/system/xbin/tail", "/system/xbin/tar",
+        "/system/xbin/taskset", "/system/xbin/tee", "/system/xbin/telnet",
+        "/system/xbin/telnetd", "/system/xbin/test", "/system/xbin/tftp",
+        "/system/xbin/tftpd", "/system/xbin/time", "/system/xbin/timeout",
+        "/system/xbin/top", "/system/xbin/touch", "/system/xbin/tr",
+        "/system/xbin/traceroute", "/system/xbin/true", "/system/xbin/ttysize",
+        "/system/xbin/tune2fs", "/system/xbin/umount", "/system/xbin/uname",
+        "/system/xbin/uncompress", "/system/xbin/unexpand", "/system/xbin/uniq",
+        "/system/xbin/unix2dos", "/system/xbin/unlzma", "/system/xbin/unlzop",
+        "/system/xbin/unxz", "/system/xbin/unzip", "/system/xbin/uptime",
+        "/system/xbin/usleep", "/system/xbin/uudecode", "/system/xbin/uuencode",
+        "/system/xbin/vi", "/system/xbin/watch", "/system/xbin/wc",
+        "/system/xbin/wget", "/system/xbin/which", "/system/xbin/whoami",
+        "/system/xbin/xargs", "/system/xbin/xz", "/system/xbin/xzcat",
+        "/system/xbin/yes",
+        "/system/xbin/zcat");
+delete("/tmp/backup.sh");
+delete("/tmp/busybox");
+show_progress(0.200000, 0);	   
+endif;
+
+
+##Personalize##
+
+if file_getprop("/tmp/aroma-data/personalization.prop","item.0.1") == "1"
+then 
+ui_print("Installing Sony's Sketch<<<<<");
+package_extract_file("customize/APKs-Data/APKs-Data_Personalization/SomcSketch.apk", "/data/app/SomcSketch.apk");
+endif;
+
+if file_getprop("/tmp/aroma-data/personalization.prop","item.0.2") == "1"
+then 
+ui_print("Installing Sony's Movie Creator<<<<<");
+package_extract_file("customize/APKs-Data/APKs-Data_Personalization/SomcCreator.apk", "/data/app/SomcCreator.apk");
+endif;
+
+if file_getprop("/tmp/aroma-data/personalization.prop","item.0.3") == "1"
+then 
+ui_print("Installing Xperia Z3 Wallpapers<<<<<");
+package_extract_dir("customize/Xperia Wallpapers/system", "/system");
+endif;
+
+set_progress(0.4);
+
+set_progress(0.5);
+
+set_progress(0.6);
+
+set_progress(0.7);
+
+set_progress(0.8);
+
+set_progress(0.9);
+set_perm_recursive(1000, 1000, 0775, 0644, "/system/app");
+set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
+unmount("/data");
+unmount("/system");
+ui_print(" ");
+ui_print(" ");
+ui_print("***********************************************");
+ui_print("               Enjoy your Addons               ");   
+ui_print("    Comment And Rate the ROM on XDA Thread!!   ");
+ui_print("***********************************************");
+ui_print(" ");
+ui_print(" ");
+
+

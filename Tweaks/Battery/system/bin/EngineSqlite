@@ -1,0 +1,125 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X ENGINE SERIES
+# VERSION SPARK EDITION
+# DEV BY K1KS
+# SQLITE3 ENGINE DATABASE 
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+PATH=$PATH:/system/xbin:/sbin:/vendor/bin:/system/sbin:/system/bin
+if [ -d "/data/local/busybox*/xbin" ]; then PATH=$PATH:`ls -d /data/local/busybox*/xbin 2>/dev/null`; fi
+
+busybox clear
+busybox echo ""
+busybox echo -e "\e[01;33m     Spark...\e[00;37m"
+busybox echo -e "\e[31m   //----------------------------------------//"
+busybox echo -n "  "
+busybox echo -e "\e[00;41m// SQLITE3 ENGINE DATABASE 2.3 at 4.4    //\e[00;37;40m"
+busybox echo -e "\e[31m //----------------------------------------//\e[00;37;40m"
+busybox echo -e "\e[01;33m                        Imagination At Work  
+\e[00;37;40m"
+busybox sleep 3
+busybox echo ""
+busybox echo -n ">>>...Really Install SQLite3 Database...?
+[ Yes = 1 | No = 2 ]: "
+read option
+if [ $option -ne 1 ]; then
+busybox echo ""
+busybox echo ">>>...Exiting Now..."
+busybox sleep 1
+exit
+else
+busybox sleep 1
+fi;
+busybox echo ""
+busybox echo ">>>...Sequential StartUp Of The Installation Process..."
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox sleep 5;
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+
+GET=$(echo $(getprop ro.build.version.release));
+
+case $GET in
+
+"2.3"*)
+busybox cp /data/Database/2.3.x/lib/libncurses.so /system/lib;
+busybox cp /data/Database/2.3.x/xbin/sqlite3 /system/xbin;
+busybox chmod 644 /system/lib/libncurses.so;
+busybox chown 0.0 /system/lib/libncurses.so;
+busybox chmod 6755 /system/xbin/sqlite3;
+busybox chown 0.0 /system/xbin/sqlite3;
+;;
+"4.0"*)
+busybox cp /data/Database/4.0.x/lib/libncurses.so /system/lib;
+busybox cp /data/Database/4.0.x/xbin/sqlite3 /system/xbin;
+busybox chmod 644 /system/lib/libncurses.so;
+busybox chown 0.0 /system/lib/libncurses.so;
+busybox chmod 6755 /system/xbin/sqlite3;
+busybox chown 0.0 /system/xbin/sqlite3;
+;;
+"4.1"*)
+busybox cp /data/Database/4.1.x/lib/libncurses.so /system/lib;
+busybox cp /data/Database/4.1.x/xbin/sqlite3 /system/xbin;
+busybox chomd 644 /system/lib/libncurses.so;
+busybox chown 0.0 /system/lib/libncurses.so;
+busybox chmod 6755 /system/xbin/sqlite3;
+busybox chown 0.0 /system/xbin/sqlite3;
+;;
+"4.2"*)
+busybox cp /data/Database/4.2.x/lib/libncurses.so /system/lib;
+busybox cp /data/Database/4.2.x/xbin/sqlite3 /system/xbin;
+busybox chmod 644 /system/lib/libncurses.so;
+busybox chown 0.0 /system/lib/libncurses.so;
+busybox chmod 6755 /system/xbin/sqlite3;
+busybox chown 0.0 /system/xbin/sqlite3;
+;;
+"4.3"*)
+busybox cp /data/Database/4.3.x/lib/libncurses.so /system/lib;
+busybox cp /data/Database/4.3.x/xbin/sqlite3 /system/xbin;
+busybox chmod 644 /system/lib/libncurses.so;
+busybox chown 0.0 /system/lib/libncurses.so;
+busybox chmod 6755 /system/xbin/sqlite3;
+busybox chown 0.0 /system/xbin/sqlite3;
+;;
+"4.4"*)
+busybox cp /data/Database/4.4.x/lib/libncurses.so /system/lib;
+busybox cp /data/Database/4.4.x/xbin/sqlite3 /system/xbin;
+busybox chmod 644 /system/lib/libncurses.so;
+busybox chown 0.0 /system/lib/libncurses.so;
+busybox chmod 6755 /system/xbin/sqlite3;
+busybox chown 0.0 /system/xbin/sqlite3;
+;;
+esac
+
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox sleep 3
+busybox echo ""
+busybox echo ">>>...Great ! SQLite3 Database is Installed..."
+busybox echo ""
+busybox sleep 3
+busybox echo ">>>...Now The Source Database Will Be Deleted..."
+busybox echo ""
+busybox echo ">>>...This Option Will Not Be Possible..."
+busybox sleep 2
+busybox echo ""
+busybox rm -rf /data/Database
+busybox echo ""
+busybox echo ">>>...Done..."
+busybox echo ""
+busybox echo ">>>...Your Device Will Reboot..."
+busybox sleep 3
+
+reboot
+busybox reboot

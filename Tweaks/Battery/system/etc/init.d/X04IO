@@ -1,0 +1,86 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X ENGINE SERIES
+# VERSION SPARK EDITION
+# DEV BY K1KS
+# X04IO 
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+PATH=$PATH:/system/xbin:/sbin:/vendor/bin:/system/sbin:/system/bin
+if [ -d "/data/local/busybox*/xbin" ]; then PATH=$PATH:`ls -d /data/local/busybox*/xbin 2>/dev/null`; fi
+
+busybox sleep 35
+
+PMB=/data/ModBoost/X04IO.log
+
+if [ -e $PMB ]; then
+busybox	rm $PMB;
+fi;
+
+busybox touch $PMB;
+busybox echo "*** NITRO X ENGINE ***" | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+busybox echo "$( date +"%m-%d-%Y %H:%M:%S" ) Executing X04IO..." | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+
+X=2048
+
+# Set SDCache
+sdcard=/sys/devices/virtual/bdi/179:*
+
+for i in $sdcard; do
+if [ -e ${i}/read_ahead_kb ]; then
+busybox echo "$X" > ${i}/read_ahead_kb;
+fi;
+done
+
+busybox sleep 1
+
+if [ /sys/devices/virtual/bdi/179:0/read_ahead_kb=$X ]; then
+busybox echo "...Optimization System Read_Ahead SD = Active..." | tee -a $PMB; else
+busybox echo "...Optimization System Read_Ahead SD = Not Active..." | tee -a $PMB;
+fi;
+
+# Scheduler Adjustments 
+STL=`ls -d /sys/block/stl*`;
+BML=`ls -d /sys/block/bml*`;
+MMC=`ls -d /sys/block/mmc*`;
+ZRM=`ls -d /sys/block/zram*`;
+MTD=`ls -d /sys/block/mtd*`;
+RAM=`ls -d /sys/block/ram*`;
+LP=`ls -d /sys/block/loop*`;
+
+for i in $STL $BML $MMC $ZRM $MTD $RAM; do
+
+busybox echo "0" > $i/queue/rotational
+busybox echo "1" > $i/queue/iosched/back_seek_penalty
+busybox echo "1000000000" > $i/queue/iosched/back_seek_max
+busybox echo "1" > $i/queue/iosched/low_latency
+busybox echo "1" > $i/queue/iosched/slice_idle
+busybox echo "8" > $i/queue/iosched/quantum
+busybox echo "4" > $i/queue/iosched/fifo_batch
+busybox echo "0" > $i/queue/rotational
+busybox echo "$X" > $i/queue/read_ahead_kb;
+busybox echo "$X" > $i/queue/nr_requests;
+busybox echo "1" >  $i/queue/rq_affinity;   
+busybox echo "0" > $i/queue/iostats;
+done
+
+busybox sleep 1
+
+if [ $i/queue/nr_requests=$X ]; then
+busybox echo "...Optimization Scheduler Adjustments = Active..." | tee -a $PMB; else
+busybox echo "...Optimization Scheduler Adjustments = Not Active..." | tee -a $PMB;
+fi;
+
+busybox echo "" | tee -a $PMB;
+busybox echo "$( date +"%m-%d-%Y %H:%M:%S" ) X04IO is Succesfully Activated..." | tee -a $PMB;

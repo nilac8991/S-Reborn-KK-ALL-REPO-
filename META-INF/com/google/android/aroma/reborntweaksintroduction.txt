@@ -1,0 +1,9 @@
+***S+ Reborn Users**
+
+The Reborn Tweaks usually used to be included in the ROM by default. 
+But from Release 12 i decided to make the ROM more simplistic with less 
+Blotware or something else and to leave the option to the user to decide this.
+In the next page you will two kind of Reborn Tweaks: Battery Saver and Performance, choose the one you desire...
+If you don't want to install any kind of these tweaks choose the default option.
+
+********************

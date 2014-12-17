@@ -1,0 +1,77 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X ENGINE SERIES
+# VERSION SPARK EDITION
+# DEV BY K1KS
+# X08VACUUM 
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+PATH=$PATH:/system/xbin:/sbin:/vendor/bin:/system/sbin:/system/bin
+if [ -d "/data/local/busybox*/xbin" ]; then PATH=$PATH:`ls -d /data/local/busybox*/xbin 2>/dev/null`; fi
+
+PMB=/data/ModBoost/X08VACCUM.log
+
+if [ -e $LOG ]; then
+busybox	rm $LOG
+fi
+
+busybox touch $LOG
+busybox echo "*** NITRO X ENGINE ***" | tee -a $PMB
+busybox echo "" | tee -a $PMB
+busybox echo "$( date +"%m-%d-%Y %H:%M:%S" ) Executing X08VACCUM..." | tee -a $PMB
+
+RUN_EVERY=86400
+
+for i in `busybox find /d* -iname "*.db"`; do
+		/system/xbin/sqlite3 $i 'VACUUM;';
+		resVac=$?
+		if [ $resVac == 0 ]; then
+			resVac="SUCCESS";
+		else
+			resVac="ERRCODE-$resVac";
+		fi;
+		
+		/system/xbin/sqlite3 $i 'REINDEX;';
+		resIndex=$?
+		if [ $resIndex == 0 ]; then
+			resIndex="SUCCESS";
+		else
+			resIndex="ERRCODE-$resIndex";
+		fi;
+
+busybox echo "" | tee -a $PMB
+busybox echo "Database $i:  VACUUM=$resVac  REINDEX=$resIndex" | tee -a $PMB
+done
+	
+for i in `busybox find /sdcard* -iname "*.db"`; do
+		/system/xbin/sqlite3 $i 'VACUUM;';
+		resVac=$?
+		if [ $resVac == 0 ]; then
+			resVac="SUCCESS";
+		else
+			resVac="ERRCODE-$resVac";
+		fi;
+		
+		/system/xbin/sqlite3 $i 'REINDEX;';
+		resIndex=$?
+		if [ $resIndex == 0 ]; then
+			resIndex="SUCCESS";
+		else
+			resIndex="ERRCODE-$resIndex";
+		fi;
+		
+busybox echo "" | tee -a $PMB
+busybox echo "Database $i:  VACUUM=$resVac  REINDEX=$resIndex" | tee -a $PMB
+busybox done
+	
+busybox echo "" | tee -a $PMB
+busybox echo "$( date +"%m-%d-%Y %H:%M:%S" ) X08VACCUM is Succesfully Activated..." | tee -a $PMB

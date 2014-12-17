@@ -1,0 +1,332 @@
+#!/system/bin/sh
+
+PATH=$PATH:/system/xbin:/sbin:/vendor/bin:/system/sbin:/system/bin
+if [ -d "/data/local/busybox*/xbin" ]; then PATH=$PATH:`ls -d /data/local/busybox*/xbin 2>/dev/null`; fi
+line=================================================
+cd "${0%/*}" 2>/dev/null
+mount -o remount,rw /data 2>/dev/null
+busybox mount -o remount,rw /data 2>/dev/null
+# To set the next line manually, see comments at the top for instuctions!
+flushOmaticHours=1
+if [ ! "$flushOmaticHours" ] || [ "`echo $flushOmaticHours | grep "[^\.0-9]"`" ] || [ "`echo $flushOmaticHours | awk '$1>24'`" ]; then flushOmaticHours=0
+else flushOmaticHours=`echo $flushOmaticHours | awk '{print $1*1}'`
+fi
+intervalsecs="sleep `echo $flushOmaticHours | awk '{printf "%.0f\n", $1*60*60}'`"
+bootupminutedelay=7
+bootupdelay="sleep $(($bootupminutedelay*60))"
+if [ -t 0 ]; then interactive=yes; fi
+if [ "`busybox ps -w`" ]; then w=" -w"; fi 2>/dev/null
+LOG_FILE=/data/Ran_EngineFlush-O-Matic.log
+remount(){
+	mount -o remount,$1 /system 2>/dev/null
+	busybox mount -o remount,$1 /system 2>/dev/null
+	busybox mount -o remount,$1 $(busybox mount | awk '/system /{print $1,$3}') 2>/dev/null
+}
+Flush_Engine(){
+	while [ ! "`ps | grep -m 1 [a]ndroid`" ]; do sleep 10; done
+	if [ "`busybox ps | grep Flush | grep Effect`" ]; then FOMactive=yes; fi
+	echo "" | tee -a $LOG_FILE
+	if [ "`echo $flushOmaticHours | awk '$1>0'`" ]; then
+		flushmode="   -=Engine Flush-O-Matic=- by -=zeppelinrox=-"
+		echo " Engine Flush-O-Matic is enabled!" >> $LOG_FILE
+		echo "" >> $LOG_FILE
+	else flushmode="    -=Fast Engine Flush=- by -=zeppelinrox=-"
+	fi
+	echo " $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE
+	echo ""
+	animspeed="busybox sleep 0.125"
+	if [ -f "/data/FOMbootup" ]; then rm /data/FOMbootup
+		echo " Delaying First Flush for $bootupminutedelay minutes (make sure something stinks lol)" | tee -a $LOG_FILE
+		echo "" | tee -a $LOG_FILE
+		$bootupdelay | grep "Flush_On_Boot_Delay__is_In_Effect!"
+	elif [ -f "/data/FOMsleep" ]; then rm /data/FOMsleep
+		echo " Now letting stuff build up for $flushOmaticHours hours... heh." | tee -a $LOG_FILE
+		echo "" | tee -a $LOG_FILE
+		$intervalsecs | grep "Engine_Flush-O-Matic_is_In_Effect!"
+	elif [ ! "$FOMactive" ]; then
+		clear;sleep 1;echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "                || ________  -( (-";echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "              |___|            __";echo "                || ________  -( (-";echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "              |   |";echo "              |___|            __";echo "                || ________  -( (-";echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "              |   |";echo "              |   |";echo "              |___|            __";echo "                || ________  -( (-";echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "              |   D";echo "              |   |";echo "              |   |";echo "              |___|            __";echo "                || ________  -( (-";echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";$animspeed
+		clear;echo "";echo $line;echo "               ___";echo "              |   D";echo "              |   |";echo "              |   |";echo "              |___|            __";echo "                || ________  -( (-";echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;$animspeed;$animspeed
+		clear;echo "";echo $line;echo "              |   D";echo "              |   |";echo "              |   |";echo "              |___|            __";echo "                || ________  -( (-";echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";$animspeed
+		clear;echo "";echo $line;echo "              |   |";echo "              |   |";echo "              |___|            __";echo "                || ________  -( (-";echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "              |   |";echo "              |___|            __";echo "                || ________  -( (-";echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "              |___|            __";echo "                || ________  -( (-";echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "                || ________  -( (-";echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "                |_(--------)  '-'";echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "                   \      /";echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "                    )_.._(";echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "                                         zoom...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "                               zoom...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "                     zoom...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo "           zoom...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo " zoom...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo " zoom...                                zoom...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo " zoom...                     zoom...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo " zoom...           zoom...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";$animspeed
+		clear;echo " zoom... zoom...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";busybox sleep 0.5
+		clear;echo " zOOM... zOOM...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";busybox sleep 0.5
+		clear;echo " zoom... zoom...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";busybox sleep 0.5
+		clear;echo " zOOM... zOOM...";echo $line;echo "$flushmode";echo $line;echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";busybox sleep 1
+		clear;echo " zOOM... zOOM...";echo $line;echo "$flushmode";echo $line;echo "";busybox sleep 1
+	fi
+	echo "" > $LOG_FILE
+	if [ "easyloglulz" ]; then
+		echo " zOOM... zOOM..."
+		echo $line
+		echo "$flushmode"
+		echo $line
+		echo ""
+		sleep 1
+		if [ ! "$interactive" ]; then
+			echo " Gonna wait until your Android is asleep..."
+			echo ""
+			sleep 1
+			echo "              ...so you can get you're Game On!"
+			echo ""
+			sleep 1
+			echo "                            ...Lag 'n Gag Free!"
+			echo ""
+			echo -n " OK! Android's ";cat /sys/power/wait_for_fb_sleep; echo " so we're good to go..."
+			echo ""
+			sleep 1
+			echo "         ...without risk of clogging the drain!"
+			echo ""
+			echo $line
+			echo ""
+			sleep 1
+		fi
+		id=$(id); id=${id#*=}; id=${id%%[\( ]*}
+		if [ "$id" != "0" ] && [ "$id" != "root" ]; then
+			sleep 2
+			echo " You are NOT running this script as root..."
+			echo ""
+			sleep 3
+			echo $line
+			echo "                      ...No SuperUser For You!!"
+			echo $line
+			echo ""
+			sleep 3
+			echo "         ...Please Run as Root and try again..."
+			echo ""
+			echo $line
+			echo ""
+			sleep 3
+			exit 69
+		elif [ "$FOMactive" ] && [ "$interactive" ]; then
+			echo " -=Engine Flush-O-Matic=- is already in memory!"
+			echo ""
+			sleep 1
+			echo " Do you want to flush now anyway?"
+			echo ""
+			sleep 1
+			echo " Note: You can't enter another \"Flush Cycle\"!"
+			echo ""
+			sleep 1
+			echo -n " Enter Y for Yes, any key for No: "
+			stty -icanon min 0 time 10
+			read FOMactive
+			stty sane
+			echo ""; echo ""
+			echo $line
+			case $FOMactive in
+			  y|Y)echo " Alrighty Then!"
+				  echo $line
+				  echo ""
+				  sleep 1;;
+				*)echo " No Flush For You!"
+				  echo $line
+				  echo ""
+				  exit 69;;
+			esac
+		fi
+		ram=$((`free | awk '/Mem:/{print $2}'`/1024))
+		ramused=$((`free | awk '/Mem:/{print $3}'`/1024))
+		ramkbytesfree=`free | awk '/Mem:/{print $4}'`
+		ramkbytescached=`awk '/^Cached:/{print $2}' /proc/meminfo`
+		ramfree=$(($ramkbytesfree/1024));ramcached=$(($ramkbytescached/1024));ramreportedfree=$(($ramfree + $ramcached))
+		echo " $( date +"%m-%d-%Y %H:%M:%S" ): Flushing Engine with $0!"
+		echo ""
+		sleep 1
+		echo " Note that \"Used RAM\" INCLUDES Cached Apps!!"
+		echo ""
+		sleep 1
+		echo $line
+		echo " RAM Stats BEFORE Engine Flush..."
+		echo $line
+		echo ""
+		sleep 1
+		echo " Total: $ram MB  Used: $ramused MB  True Free: $ramfree MB"
+		echo ""
+		sleep 1
+		echo " Reported Free by most tools: $ramreportedfree MB Free RAM!"
+		echo ""
+		sleep 1
+		echo $line
+		echo " True Free $ramfree MB = \"Free\" $ramreportedfree - Cached Apps $ramcached"
+		echo $line
+		echo ""
+		sleep 1
+		echo " ...OR...    True Free RAM   $ramfree"
+		echo "               Cached Apps + $ramcached"
+		echo "                           ========"
+		echo "       Reported \"Free\" RAM = $ramreportedfree MB"
+		echo ""
+		sleep 1
+		busybox sync;
+		echo $line
+		echo -n " Engine Flush In Progress... ";busybox sysctl -w vm.drop_caches=3
+		echo $line
+		echo ""
+		sleep 3
+		busybox sysctl -w vm.drop_caches=1 1>/dev/null
+		ramused=$((`free | awk '/Mem:/{print $3}'`/1024))
+		ramkbytesfree=`free | awk '/Mem:/{print $4}'`
+		ramkbytescached=`awk '/^Cached:/{print $2}' /proc/meminfo`
+		ramfree2=$(($ramkbytesfree/1024));ramcached2=$(($ramkbytescached/1024));ramreportedfree2=$(($ramfree2 + $ramcached2))
+		echo $line
+		echo "                ...RAM Stats AFTER Engine Flush"
+		echo $line
+		echo ""
+		sleep 1
+		echo " Total: $ram MB  Used: $ramused MB  True Free: $ramfree2 MB"
+		echo ""
+		sleep 1
+		echo " Reported Free by most tools: $ramreportedfree2 MB Free RAM!"
+		echo ""
+		sleep 1
+		echo $line
+		echo " True Free $ramfree2 MB = \"Free\" $ramreportedfree2 - Cached Apps $ramcached2"
+		echo $line
+		echo ""
+		sleep 1
+		echo " ...OR...    True Free RAM   $ramfree2"
+		echo "               Cached Apps + $ramcached2"
+		echo "                           ========"
+		echo "       Reported \"Free\" RAM = $ramreportedfree2 MB"
+		echo ""
+		echo $line
+		echo ""
+		sleep 1
+		echo "     True Free RAM Change = $(($ramfree2 - $ramfree)) MB = $ramfree2 - $ramfree"
+		echo ""
+		sleep 1
+		echo "       Cached Apps Change = $(($ramcached2 - $ramcached)) MB = $ramcached2 - $ramcached"
+		echo ""
+		sleep 1
+		echo " Reported Free RAM Change = $(($ramreportedfree2 - $ramreportedfree)) MB = $ramreportedfree2 - $ramreportedfree"
+		echo ""
+		sleep 1
+		echo $line
+		echo "                  ...Enjoy Your Quick Boost ;^]"
+		echo $line
+		echo ""
+		sleep 1
+		echo " Check out $LOG_FILE..."
+		echo ""
+		sleep 1
+		echo "                ...for the most recent details!"
+		echo ""
+		sleep 1
+		echo "      ====================================="
+		if [ "`echo $flushOmaticHours | awk '$1>0'`" ]; then echo "       ) Engine Flush-O-Matic Completed! ("
+		else echo "       )   Fast Engine Flush Completed!  ("
+		fi
+		echo "      ====================================="
+		echo ""
+		sleep 1
+	fi | tee -a $LOG_FILE
+	if [ ! "`echo $flushOmaticHours | awk '$1>0'`" ]; then
+		echo " And Hey! Init.d Start Up Scripts Are Working!"
+		echo ""
+		exit 0
+	elif [ "$FOMactive" ] || [ "`busybox ps | grep Flush | grep Effect`" ]; then
+		echo $line
+		echo " -=Engine Flush-O-Matic=- is already in memory!"
+		echo $line
+		echo ""
+		sleep 1
+		exit 69
+	elif [ "$changedopt" ]; then
+		echo " After closing this app you may wonder..."
+		echo ""
+		sleep 1
+		echo " Is -=Engine Flush-O-Matic=- working?"
+		echo " ===================================="
+		echo ""
+		sleep 1
+		echo " Check out $LOG_FILE!"
+		echo ""
+		sleep 1
+		echo " Or... in Terminal Emulator, you can type..."
+		echo ""
+		sleep 1
+		echo " \"pstree | grep -i flus\" OR \"pstree|grep sleep\""
+		echo ""
+		sleep 1
+		echo " OR... get COMPLETE information with..."
+		echo ""
+		sleep 1
+		echo "         ...\"grep -hi [f]lush /proc/*/cmdline\"!"
+		echo ""
+		sleep 1
+		echo " The output should look like this:"
+		echo ""
+		sleep 1
+		echo "   /data/V6_SuperCharger/!FastEngineFlush.sh..."
+		echo "   OR /system/etc/init.d/96superflush"
+		echo "   OR /system/xbin/flush (just one of them)"
+		echo "   Engine_Flush-O-Matic_is_In_Effect!"
+		echo ""
+		sleep 1
+		echo " Easier: Similar results can be had with..."
+		echo ""
+		sleep 1
+		echo "               ...\"busybox ps | grep -i [f]lus\""
+		echo ""
+		sleep 1
+		echo " ...OR run this script again...I'll tell ya LOL"
+		echo ""
+		sleep 1
+		echo $line
+		echo " Now executing -=Engine Flush-O-Matic=-..."
+		echo $line
+		echo ""
+		sleep 1
+	fi
+	echo $line
+	echo "       Here We Go Again... in $flushOmaticHours hours LOL"
+	echo $line
+	echo ""
+	sleep 1
+	echo $line
+	echo "         Oh Hey! You can close this App!"
+	echo $line
+	echo ""
+	sleep 1
+	if [ "`busybox --help | grep nohup`" ] && [ ! "`busybox ps$w | grep "{.*/${0##*/}"`" ]; then echo "cookie!" > /data/FOMsleep; (busybox nohup $0 > /dev/null &)
+	elif [ "`busybox --help | grep start-stop-daemon`" ] && [ ! "`busybox ps$w | grep "{.*/${0##*/}"`" ]; then echo "cookie!" > /data/FOMsleep; busybox start-stop-daemon -S -b -x $0
+	else echo "cookie!" > /data/FOMsleep; $0 > /dev/null & exit 0
+	fi
+}
+if [ "`ps | grep -m 1 [a]ndroid`" ]; then Flush_Engine
+else exec > /data/BootLog_FastEngineFlush.log 2>&1
+	echo "cookie!" > /data/FOMbootup
+	rm $LOG_FILE 2>/dev/null
+	Flush_Engine &
+fi
+exit 0

@@ -1,0 +1,45 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X ENGINE SERIES
+# VERSION SPARK EDITION
+# DEV BY K1KS
+# SETPERM 
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+PATH=$PATH:/system/xbin:/sbin:/vendor/bin:/system/sbin:/system/bin
+if [ -d "/data/local/busybox*/xbin" ]; then PATH=$PATH:`ls -d /data/local/busybox*/xbin 2>/dev/null`; fi
+
+PMB=/data/ModBoost/777PERM.log
+
+if [ -e $PMB ]; then
+busybox	rm $PMB;
+fi;
+
+busybox touch $PMB;
+busybox echo "*** NITRO X ENGINE ***" | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+busybox echo "$( date +"%m-%d-%Y %H:%M:%S" ) Executing 777PERM..." | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+
+SU=777
+
+if
+busybox mount -o remount,rw -t auto /system
+busybox chmod -R $SU /system/etc/init.d
+busybox mount -o remount,ro -t auto /system
+then
+busybox echo "...Permissions to Init.D = Active and set $SU" | tee -a $PMB; else
+busybox echo "...Permissions to Init.D = Not Active" | tee -a $PMB
+fi;
+
+busybox echo "" | tee -a $PMB;
+busybox echo "$( date +"%m-%d-%Y %H:%M:%S" ) 777PERM is Successfully Executed..." | tee -a $PMB;

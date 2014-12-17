@@ -1,0 +1,99 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X ENGINE SERIES
+# VERSION SPARK EDITION
+# DEV BY K1KS
+# DNS_SYS
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+busybox clear
+busybox echo ""
+busybox echo -e "\e[01;33m     Spark...\e[00;37m"
+busybox echo -e "\e[31m   //----------------------------------------//"
+busybox echo -n "  "
+busybox echo -e "\e[00;41m//               ADS_SYSTEM         //\e[00;37;40m"
+busybox echo -e "\e[31m //----------------------------------------//\e[00;37;40m"
+busybox echo -e "\e[01;33m                        Imagination At Work 
+\e[00;37;40m"
+busybox sleep 3
+busybox echo ""
+busybox echo ">>> 1...Ads_ON..."
+busybox echo ""
+busybox echo ">>> 2...Ads_OFF..."
+busybox echo ""
+busybox echo -n ">>>...Make your choice..?"                
+read character
+case $character in
+1) busybox sleep 1
+if [ -e /system/etc/init.d/X06ADS ]; then
+busybox echo ""
+busybox echo ">>>...Ads_System Is Already Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Sequential Startup Ads_System..."
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox cp -f /system/etc/Ads_Nitro/X06ADS /system/etc/init.d
+busybox chmod 777 /system/etc/init.d/X06ADS
+busybox chown 0.0 /system/etc/init.d/X06ADS
+busybox mv -f /system/etc/hosts /system/etc/hosts.bak
+busybox cp -f /system/etc/Ads_Nitro/hosts /system/etc
+busybox chmod -f 755 /system/etc/hosts
+busybox chown -f 0.0 /system/etc/hosts
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Done ! Please reboot your device..."
+busybox sleep 3
+fi;;
+2) busybox sleep 1
+if [ ! -e /system/etc/init.d/X06ADS ]; then
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Ads_System Is Not Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Stop-Over Ads_System..."
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+
+busybox pkill /system/etc/init.d/X06ADS
+busybox pkill /data/dnsmasq.pid
+busybox pkill /system/bin/dnsproxy2dex
+busybox pkill /system/bin/dnsmasqdex
+busybox pkill /system/bin/pixelservdex
+busybox rm -f /system/etc/init.d/X06ADS
+busybox rm -f /data/ModBoost/X06ADS.log
+busybox rm -f /data/dnsmasq.pid
+
+if [ -e /system/etc/Ads_Nitro/hosts.bak ]; then
+busybox rm -f /system/etc/hosts
+busybox mv -f /system/etc/Ads_Nitro/hosts.bak /system/etc/hosts
+busybox chmod -f 755 /system/etc/hosts
+busybox chown -f 0.0 /system/etc/hosts
+fi
+
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Done ! Please reboot your device..."
+fi;;
+esac
+busybox sleep 3
+

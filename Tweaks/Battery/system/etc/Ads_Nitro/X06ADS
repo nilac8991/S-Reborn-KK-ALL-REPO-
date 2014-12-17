@@ -1,0 +1,46 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X ENGINE SERIES
+# VERSION SPARK EDITION
+# DEV BY K1KS
+# X06ADS
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+PATH=$PATH:/system/xbin:/sbin:/vendor/bin:/system/sbin:/system/bin
+if [ -d "/data/local/busybox*/xbin" ]; then PATH=$PATH:`ls -d /data/local/busybox*/xbin 2>/dev/null`; fi
+
+PMB=/data/ModBoost/X06ADS.log;
+
+if [ -e $PMB ]; then
+busybox	rm $PMB;
+fi;
+
+busybox touch $PMB;
+busybox echo "*** NITRO X ENGINE ***" | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+busybox echo "$( date +"%m-%d-%Y %H:%M:%S" ) Executing X06ADS..." | tee -a $PMB;
+
+dnsproxy2dex -w 127.0.0.1 &
+
+dnsmasqdex -C /system/etc/Ads_Nitro/dnsmasq.conf
+
+pixelservdex 127.0.0.1 >/dev/null 2>&1
+
+busybox sleep 1
+
+busybox echo "" | tee -a $PMB;
+if [ data/dnsmasq.pid ]; then
+busybox echo "...DNS Server and Ads Nitro = Active and Set on 127.0.0.1..." | tee -a $PMB; else
+busybox echo "...DNS Server and Ads Nitro = Not Active..." | tee -a $PMB;
+fi;
+busybox echo "" | tee -a $PMB;
+busybox echo "$( date +"%m-%d-%Y %H:%M:%S" ) X06ADS is Successfully Executed..." | tee -a $PMB;

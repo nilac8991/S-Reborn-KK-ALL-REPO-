@@ -1,0 +1,105 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X ENGINE SERIES
+# VERSION SPARK EDITION
+# DEV BY K1KS
+# NITRO X ENTROPY ON 
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+busybox clear
+busybox echo ""
+busybox echo -e "\e[01;33m     Spark...\e[00;37m"
+busybox echo -e "\e[31m   //----------------------------------------//"
+busybox echo -n "  "
+busybox echo -e "\e[00;41m//               NITRO X ENTROPY         //\e[00;37;40m"
+busybox echo -e "\e[31m //----------------------------------------//\e[00;37;40m"
+busybox echo -e "\e[01;33m                        Imagination At Work 
+\e[00;37;40m"
+busybox sleep 3
+busybox echo ""
+busybox echo -n ">>>...Sequential Startup Nitro X Entropy...? 
+[ Yes = 1 | No = 2 ]:"
+read option2
+if [ $option2 -ne 1 ]; then
+busybox echo ""
+busybox echo ">>>...Bye.bye ! Out now..."
+sleep 1
+busybox exit 
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Let's Go !...In Progress..."
+busybox sleep 3;
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+if [ -e /system/bin/qrngd ]; then
+busybox mv -f /system/bin/qrngd /system/bin/qrngd.bak
+fi;
+if [ -e /system/xbin/qrngd ]; then
+busybox mv -f /system/xbin/qrngd /system/xbin/qrngd.bak
+fi;
+if [ -e /system/bin/haveged ]; then
+busybox rm -f /data/rngd.pid
+busybox pkill /system/bin/haveged
+busybox mv -f /system/bin/haveged /system/bin/haveged.bak
+fi;
+if [ -e /system/xbin/haveged ]; then
+busybox rm -f /data/rngd.pid
+busybox pkill /system/xbin/haveged
+busybox mv -f /system/xbin/haveged /system/xbin/haveged.bak
+fi;
+busybox cp -f /system/etc/Nitro_Scritpts/haveged /system/xbin
+busybox cp -f /system/etc/Nitro_Scritpts/entro /system/xbin
+busybox chmod -f 755 /system/xbin/haveged
+busybox chmod -f 755 /system/xbin/entro
+busybox chown -f 0.0 /system/xbin/haveged
+busybox chown -f 0.0 /system/xbin/entro
+haveged
+busybox renice -9 `busybox pidof haveged`
+fi;
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo -n ">>>...StartUp Nitro X Entropy at Boot...? 
+[ Yes = 1 | No = 2 ]: "
+read option2
+if [ $option2 -ne 1 ]; then
+busybox echo ""
+busybox echo ">>>...Nitro X Entropy Will NOT Start at Boot..."
+busybox sleep 1
+busybox echo ""
+busybox echo ">>>...Nitro X Entropy Is Start Until You Reboot..."
+busybox sleep 1
+busybox exit 
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Let's Go !...In Progress..."
+busybox sleep 1
+busybox cp -f /system/etc/Nitro_Scritpts/X00NITRO /system/etc/init.d
+busybox chmod -f 777 /system/etc/init.d/X00NITRO
+busybox chown -f 0.0 /system/etc/init.d/X00NITRO
+busybox sleep 1
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Nitro X Entropy Will Now Start At Boot..."
+busybox sleep 1
+busybox echo ""
+busybox echo ">>>...Your Device Will Reboot..."
+busybox sleep 3
+
+reboot
+busybox reboot
+fi;

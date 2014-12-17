@@ -1,0 +1,168 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X ENGINE SERIES
+# VERSION SPARK EDITION
+# DEV BY K1KS
+# X03GEN 
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+PATH=$PATH:/system/xbin:/sbin:/vendor/bin:/system/sbin:/system/bin
+if [ -d "/data/local/busybox*/xbin" ]; then PATH=$PATH:`ls -d /data/local/busybox*/xbin 2>/dev/null`; fi
+
+PMB=/data/ModBoost/X03GEN.log
+
+if [ -e $PMB ]; then
+busybox	rm $PMB;
+fi;
+
+busybox touch $PMB;
+busybox echo "*** NITRO X ENGINE ***" | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+busybox echo "$( date +"%m-%d-%Y %H:%M:%S" ) Executing X03GEN..." | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+
+# Remount Partitions 
+if
+if [ -e /data/ModBoost/XRemount.log ]; then
+busybox rm -f /data/ModBoost/XRemount.log
+fi;
+for i in $(busybox mount | busybox grep relatime | busybox cut -d " " -f3); do
+busybox sync;
+busybox mount -o rw,remount,noatime,nodiratime $i
+done
+mount >> /data/ModBoost/XREMOUNT.log
+then
+busybox echo "...Remount Partitions with Noatime = OK..." | tee -a $PMB; else
+busybox echo "...Remount Partitions with Noatime = NOT OK..." | tee -a $PMB;
+fi;
+
+# Renice Launcher/Acore - Kill Media
+if [ "\`cat /proc/\`pgrep launcher\`/oom_adj\`" != -16 ] || [ "\`cat /proc/\`pgrep acore\`/oom_adj\`" != -4 ]; then
+busybox echo "-16" > /proc/\`pgrep launcher\`/oom_adj;
+busybox echo "-4" > /proc/\`pgrep acore\`/oom_adj;
+fi;
+
+if [ "`pgrep media`" ] && [ "`pgrep mediaserver`" ]; then
+busybox killall -9 android.process.media;
+busybox killall -9 mediaserver;
+fi;
+
+busybox echo "...Optimization Launcher/Acore System and Kill Media = Active..." | tee -a $PMB;
+
+# Fentropy enForcer
+if [ -e "/dev/frandom" ]; then
+busybox	chmod 666 /dev/frandom;
+for dom in /dev/*random; do
+if [ "\$dom" != "/dev/frandom" ] && [ ! "\`ls \$dom.*\`" ]; then
+busybox	mv \$dom \$dom.unsuper;
+ln /dev/frandom \$dom;
+busybox	chmod 666 \$dom;
+fi 2>/dev/null;
+done;
+fi;
+
+# Disable Gentle Fair Sleepers
+if [ -e "/sys/kernel/debug/sched_features" ]; then
+busybox mount -t debugfs none /sys/kernel/debug;
+echo NO_AFFINE_WAKEUPS >> /sys/kernel/debug/sched_features;
+echo NO_ARCH_POWER >> /sys/kernel/debug/sched_features;
+echo NO_CACHE_HOT_BUDDY >> /sys/kernel/debug/sched_features;
+echo NO_DOUBLE_TICK >> /sys/kernel/debug/sched_features;
+echo NO_FORCE_SD_OVERLAP >> /sys/kernel/debug/sched_features;
+echo NO_GENTLE_FAIR_SLEEPERS >> /sys/kernel/debug/sched_features;
+echo NO_HRTICK >> /sys/kernel/debug/sched_features;
+echo NO_LAST_BUDDY >> /sys/kernel/debug/sched_features;
+echo NO_LB_BIAS >> /sys/kernel/debug/sched_features;
+echo NO_LB_MIN >> /sys/kernel/debug/sched_features;
+echo NO_NEW_FAIR_SLEEPERS >> /sys/kernel/debug/sched_features;
+echo NO_NEXT_BUDDY >> /sys/kernel/debug/sched_features;
+echo NO_NONTASK_POWER >> /sys/kernel/debug/sched_features;
+echo NO_NORMALIZED_SLEEPERS >> /sys/kernel/debug/sched_features;
+echo NO_OWNER_SPIN >> /sys/kernel/debug/sched_features;
+echo NO_RT_RUNTIME_SHARE >> /sys/kernel/debug/sched_features;
+echo NO_START_DEBIT >> /sys/kernel/debug/sched_features;
+echo NO_TTWU_QUEUE >> /sys/kernel/debug/sched_features;
+busybox umount /sys/kernel/debug;
+fi;
+
+# Setprop Nitro X Tweaks
+setprop wifi.supplicant_scan_interval=180;
+setprop ro.ril.disable.power.collapse=1 ;
+setprop pm.sleep_mode=1;
+setprop persist.sys.purgeable_assets=1;
+setprop persist.sys.use.dithering=1;
+setprop windowsmgr.max_events_per_sec=90;
+setprop video.accelerate.hw=1;
+setprop debug.sf.hw=1;
+setprop debug.performance.tuning=1;
+setprop mot.proximity.delay=25;
+setprop ro.telephony.call_ring.delay=1000;
+setprop ro.max.fling_velocity=12000;
+setprop ro.min.fling_velocity=8000;
+setprop profiler.force_disable_err_rpt=1;
+setprop profiler.force_disable_ulog=1;
+setprop hw3d.force 1;
+setprop hw2d.force 1;
+setprop debug.performance.tuning 1;
+setprop debug.gr.numframebuffers 3;
+setprop debug.qctwa.statusbar 1;
+setprop debug.qctwa.perservebuf 1;
+setprop com.qc.hardware true;
+setprop debug.sf.hw 1;
+setprop video.accelerate.hw 1;
+setprop persist.sys.ui.hw=1;
+setprop ro.vold.umsdirtyratio 20;
+setprop debug.egl.hw=1;
+setprop debug.egl.profiler 1;
+setprop persist.service.lgospd.enable 0;
+setprop persist.service.pcsync.enable 0;
+setprop ro.vold.umsdirtyratio 20;
+setprop dalvik.vm.verify-bytecode false;
+setprop debug.kill_allocating_task 0;
+setprop ro.kernel.android.checkjni 0;
+setprop ENFORCE_PROCESS_LIMIT false;
+setprop CONTENT_APP_IDLE_OFFSET false;
+setprop persist.sys.NV_FPSLIMIT 60;
+setprop persist.sys.NV_POWERMODE 1;
+setprop persist.sys.NV_PROFVER 15;
+setprop persist.sys.NV_STEREOCTRL 0;
+setprop persist.sys.NV_STEREOSEPCHG 0;
+setprop persist.sys.NV_STEREOSEP 20;
+busybox rm /dev/log/main
+
+if [ -e /dev/log/main ]; then
+busybox echo "...Optimization Setprop Nitro X Tweaks = Not Active..." | tee -a $PMB; else
+busybox echo "...Optimization Setprop Nitro X Tweaks = Active..." | tee -a $PMB;
+fi;
+
+# Clean Up
+busybox rm -f /dev/log/*;
+busybox rm -f /data/*.log;
+busybox rm -f /data/*.txt;
+busybox rm -f /data/log/*.log;
+busybox rm -f /data/log/*.txt;
+busybox rm -f /data/local/tmp/*;
+busybox rm -f /data/system/dropbox/*;
+busybox rm -f /data/system/usagestats/*;
+
+if [ -e /data/system/usagestats/* ]; then
+busybox echo "...Clean Up System / System Logging Disabled = NOT OK..." | tee -a $PMB; else
+busybox echo "...Clean Up System / System Logging Disabled = OK..." | tee -a $PMB;
+fi;
+
+if [ -e /sys/devices/system/cpu/sched_mc_power_savings ]; then
+busybox echo "...Siyah Kernel Detected , Bolt Tweaks Support..." | tee -a $PMB; else
+busybox echo "...Siyah Kernel Not Detected..." | tee -a $PMB;
+fi;
+
+busybox echo "" | tee -a $PMB;
+busybox echo "$( date +"%m-%d-%Y %H:%M:%S" ) X03GEN is Successfully Executed..." | tee -a $PMB;
