@@ -1,0 +1,80 @@
+S--Reborn-KK-Repository ChangeLOG
+ 
+###########################''S+ Reborn Is A Project licensed under Apache License''#########################################
+
+##RELEASE 1##
+
+- Initial Release
+
+##RELEASE 2##
+
+- Updated ROM Base to the latest by ADC Team
+- Changed Kernel with the K^ Kernel by Christopher
+- Updated Xperia Launcher (More fluid now!!)
+- Updated Performance Control
+- Fixed Google DNS Problem
+- Added Xperia Z Ultra Calendar /Remove Stock Calendar
+- Added Xperia Z Ultra Clock /Remove Stock Clock
+- Partially fixed the problem with Album
+- Partially fixed the problem with ViperFX Engine, you can use it like equalizer
+- Updated Xperia Theme
+- Removed Xperia Converter
+- Removed Xperia Unused Plugins like facebook, twitter ecc....
+- Removed SMC DLNA due to incompatibility 
+- Added Xperia Scratch 
+- Updated Xperia Keyboard (Now with less RAM consumption)
+- Fixed the Problem with OTA Updater
+- Updated WALKMAN to version 8.1.A.0.3 with All Features
+- Updated Album to version 5.3.A.0.22 with Photo Sildeshow and Photo Editor(NEW)
+- Updated Movies to version 5.3.A.0.18 with VideoUnlimited
+
+##RELEASE 3##
+
+#Rebranded Project Name#
+
+- Merged latest changes made by ADC Team
+- Updated K^ Kernel
+- Fixed the problem with the not showing correctly search bar in the app drawer
+- Fixed the problem with launcher crash when trying to uninstall an app
+- Updated Xperia widgets
+- Album fully functional Now!
+- Removed Viper FX Engine (Temporally), use DSP manager instead
+- Updated Performance Control 
+- Updated WALKMAN (Fixed some bugs, and partially fixed the download music info)
+- And some other changes that i forget in this moment ;)
+
+
+##RELEASE 4##
+
+- Merged Latest changes made by ADC Team (Release 2)
+- Updatad K^ Kernel
+- Updated Gapps
+- Re Added ViperFX Engine
+- Removed SoundEnhancement
+- Reborn Tweaks V3
+- Updated Xperia Notes (New Graphic!)
+- Added for this version Fast Boot (So if you don't see the bootanimation don't panic i'ts normal,just wait till the screen appears)
+- Updated Clocks Widgets
+- Removed OTA Updater 
+- Updated Performance Control 
+ 
+
+##Release 5##
+
+- Merged Latest changes made by ADC Team 
+- Updated K^ Kernel 
+- Removed Desk Clock 
+- Removed Xperia Sketch
+- ROM is now signed
+- ViperFX engine is now standalone app and it's available to download in the desciption 
+- Reputted the bootanimation 
+- NEW Xperia Z2 Calendar with Tasks
+- NEW Xperia Z2 Launcher  
+- Fixed (Maybe) the Google sync calendar  
+- Xperia Z2 SystemUI (Very thanks to ashishdubey for original porting)
+- Some changes in updater-script and build.prop
+- Updated Gapps to latest version
+- Removed YouTubeKaraokePlugin.apk and YouTubePlugin.apk
+- S+ Reborn is now part of the XOSP Project so the ROM now on will be again S+ Reborn
+- And some other minor things that i don't remember
+

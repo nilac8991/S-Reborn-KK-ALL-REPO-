@@ -1,0 +1,66 @@
+===================================
+Since Tue Dec 16 07:22:23 UTC 2014
+===================================
+
+   * frameworks/base
+682198e Only discard the roaming icon if we're not roaming anymore.
+0caceaa core: Fix typos in AOSP EN resources
+
+   * libcore
+55fd0f9 MimeUtils: add ODF presentation (template)
+
+   * packages/apps/Mms
+222c5b8 Mms: Improve some more strings
+
+===================================
+Since Sat Dec 13 10:48:34 UTC 2014
+===================================
+
+   * frameworks/opt/telephony
+9e20514 Store correct IMSI when retreived from SIMRecords and use it for RuimRecords
+
+   * packages/apps/Dialer
+22ea110 Landscape: Dialpad is too big and it cover partially contacts.
+
+   * vendor/cm
+e8bb4f8 Prioritize Airtel GPRS over Airtel Live in India.
+
+===================================
+Since Fri Dec 12 07:23:02 UTC 2014
+===================================
+
+   * packages/apps/Mms
+c53fd83 Mms: Improve some strings
+cda5004 Mms: Remove SMS signature summary
+
+   * packages/apps/Settings
+4e75688 Settings: disable report button for system apps
+
+===================================
+Since Tue Dec  9 07:17:01 UTC 2014
+===================================
+
+   * packages/apps/Mms
+991d700 Reuse @style/MmsHoloTheme in sub-activities
+9b0fbf1 More support for inverted CM11 themes
+
+   * packages/providers/TelephonyProvider
+46b2e9c Change BlacklistProvider logging to isLoggable instead of DEBUG constant
+
+   * vendor/cm
+12e4e18 Add Bulsatcom APN
+5f37ad9 Update Reliance RTel APN's.
+
+===================================
+Since Sat Dec  6 17:30:28 UTC 2014
+===================================
+
+   * frameworks/base
+7c1aec2 Themes: Fix memory corruption from closing asset before XMLTree
+
+   * frameworks/opt/telephony
+9e7b80a Telephony: Always allow ignored sms packages for premium sms.
+
+   * packages/apps/Settings
+13d2657 Settings: fix profile triggers not showing up for RTL languages
+
