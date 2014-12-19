@@ -277,7 +277,6 @@ ui_print(" ");
 ui_print("Flashing XPERIA APPS...");
 ui_print(" ");
 
-mount("ext4", "EMMC", "/dev/lvpool/system", "/system");
 mount("ext4", "EMMC", "/dev/lvpool/userdata", "/data");
 package_extract_dir("XPERIA APPS/system", "/system");
 package_extract_dir("XPERIA APPS/data", "/data");

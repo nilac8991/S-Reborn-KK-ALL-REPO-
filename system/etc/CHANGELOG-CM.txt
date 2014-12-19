@@ -1,327 +1,402 @@
-CyanogenMod
-===============
+***************************************************
+                S+ Reborn ChangeLOG              
+***************************************************
 
-Visit http://github.com/CyanogenMod for full source and git access.
+Visit the official thread on XDA http://forum.xda-developers.com/showthread.php?t=2433523
 
-Visit http://review.cyanogenmod.org for our Gerrit instance.
+-----------------------------------
 
-CHANGELOG (notable new features)
----------
-### 11.0.0 M11
-* Common: Android 4.4.4 (Google)
-* New Devices: Galaxy S4 Active (jactivelte), Galaxy S4 SK I-9506 (ks01lte), Galaxy S5 GSM (klte), Galaxy Tab 10.1 (picassowifi), Galaxy Player 4.0 (ypg1)
-* Re-introduce Samsung Galaxy Relay 4G (apexqtmo) support
-* Fix signal strength showing ’2147483647′ on certain devices
-* Frameworks & Core Apps: CAF and other upstream updates
-* Lockscreen: Do not play sounds while a phone call is active & MSIM updates
-* Frameworks: Add base & MSIM APIs for SEEK (Secure Element Evaluation Kit) support
-* Frameworks: Fix volume button changing two ‘steps’ per click
-* Frameworks: Add ‘Screen Off’ action for double-tap/long-press configuration options
-* Show devices connected to your WiFi (tethering) Hotspot
-* Fix bug related to ‘switch to last app’ action while in Recents view
-* Fix Navigation Bar arrow keys in RTL locales
-* Translations updates from CyanogenMod CrowdIn team
-* Adjustments to ‘Glove Mode’ (High Touch Sensitivity)
-* APN Updates for various regions
-* Camera: Add support for all available Slow Shutter speeds (hardware dependent); Improve shutter button
-* Dialer/InCallUI: Fix smartcover always showing answer fragment
-* LG G2: Address GPS and NFC issues
-* Base support for HTC Desire 816 & HTC One Mini 2 (pending nightlies)
-* Various security updates
-* General bug fixes
+**************************************
+        Based on Android 4.4        
+**************************************
 
-### 11.0.0 M10
-* Common: Android 4.4.4 (Google)
-* New Devices: Galaxy S5 Sprint (kltespr)
-* Split out Note 3 into GSM (hlte), Sprint (hltespr) and Verizon (hltevzw)
-* Refactor moto_msm8960dt as 'ghost' for Moto X 2013
-* Drop support for obake, toro, toroplus
-* Theme Engine: Themes support for additional UI elements
-* Frameworks & Core Apps: CAF and other upstream updates
-* Settings: Add scramble pin feature
-* Frameworks: Long press recent apps to switch to last used app
-* Settings: Add soft reboot option
-* Add smart cover support
-* Add glove mode support
-* Add bug reporter and crash log uploader
-* Multisim updates
-* General bug fixes
-* ANT+ Support for various hardware
-* Privacy Guard: Control NFC permissions
+Release 12
 
-### 11.0.0 M9
-* Common: Android 4.4.4 (Google)
-* New Devices: Sony Xperia Z2 Tablets (castor); HTC One (m8)
-* Theme Engine: Themes support for additional UI elements
-* Lockscreen: Allow doubletap to sleep when using secure keyguard
-* Settings: Safe Headset Volume – prompt when interfering with 3rd party device (Jawbone, Square, etc)
-* Settings: Center clock support
-* Settings: Proximity Wake-Up support
-* Settings: Spam notification filtering
-* Settings Search: Additional improvements and highlighting
-* Data Usage Info: Add support for CDMA devices without sim cards
-* Bluetooth: Add additional A2DP profiles
-* Bluetooth: Disable AVRCP 1.5 by default (fixes various car unit compatibility)
-* Email: Fix saving attachments to storage for POP3 accounts
-* Account for Play Services induced wake-locks
-* Fix encryption on some LG Devices
-* Dialer: add support for Korean and Chinese to smart-dialer
+ **System**
 
-### 11.0.0 M8
-* Common: Android 4.4.4 (Google)
-* New Devices: Sony Xperia Z2 (sirius); Xiaomi Mi2 (aries); Oppo Find 7a/s (find7); OnePlus One (bacon)
-* Common: Fix VPN issues related to 4.4.3 merge
-* Common: Enable 'Heads Up' notification mode (Settings > Notifications)
-* Settings: 'Interface' replaced by 'Status Bar', 'Notification Drawer', and 'Gestures'
-* Settings: Moved 'Expanded Desktop' to 'Display'
-* Settings: Moved all lock screen related items to 'Lock Screen' and removed duplicates from 'Security'
-* Settings: Moved 'Navigation Bar' layout control to 'Buttons'
-* Trebuchet: Custom Homescreen grid size
-* Trebuchet: Add Protected Apps feature
-* Trebuchet: Add Search Panel (Google Now) option
-* WhisperPush: No longer ignores 'Blacklist'
-* Futex: Protect against Towelroot
-* Various small bugfixes, global and device-specific
+- Merged latest changes made from Release 12 (ADC Team)
+- Updated K^ Kernel
+- Updated Hosts file regarding Ads block
+- Removed stock Messaging app and replaced with the Xperia Z3 Conversations one (Alpha stage! so it's not made it to be for daily use!)
+- Removed OTA Updater
+- Fixed the WiFi Thethering
+- Updated GApps
+- Clear Audio by default through build.prop lines...
+- Overall ROM performance and RAM management increassed
+- Boot time decreassed by some seconds less!! 
+- Reborn Tweaks removed and added them to the Reborn Addons
+- Removed Stock Galery 
+ 
+ **XPERIA APPS**
 
-### 11.0.0 M7
-* Common: Android 4.4.2 (Google)
-* New Devices: HTC One (m8); Samsung Galaxy Tab Pro 8.4 (mondrianwifi); Galaxy Note 8.0 LTE (n5120); LG G2 Docomo (l01f)
-* Common: Theme Chooser UI Overhaul
-* Common: Calculator app redesign (courtesy Xlythe)
-* Common: Performance Profiles
-* Common: Improved theming performance on low memory devices (~512MB RAM or less)
-* Trebuchet: Move settings to new slide-out panel
-* Trebuchet: Consolidate settings for home and drawer options
-* Media: Add FFMPEG support (expanded media format support)
-* Bluetooth: Improved support for new car audio systems and docks
-* Various small bugfixes, global and device-specific
+- Updated Xperia Home
+- Updated Xperia Home Widgets
+- Updated Walkman to version 8.5.A.0.6 (Now with a better and faster UI)
+- NEW Album app (Z3 Version) as a Data app (It works only as a data app so don't change it)
+- NEW Movie app (Z3 Version) 
+- Removed Xperia Z3 Wallpapers (You can find it in the Reborn Addons)
+- NEW Xperia Keyboard (Z3 Version)
 
-### 10.2.0
-* Common: Android 4.3 (Google)
-* Common: Privacy Guard 2.0 with AppOps
-* Common: Quick Settings Ribbon (replaces Notification Power Widgets)
-* Common: Hardware Tunables HAL
-* Common: Settings restructure
-* SMS: Voice+ (Google Voice integration)
-* SMS: Middleware layer
-* APN: World Phone Support (unified APN list)
-* Trebuchet: Universal Icon Pack support
-* Various small bugfixes, global and device-specific
+ **Reborn Addons**
 
-### 10.1.3
-* Common: CyanogenMod Account
-* Common: Privacy Guard
-* Common: Dialer blacklists
-* Common: Wake-on-Home
-* Common: QuickSettings camera
-* Common: Profile improvements
-* Various small bugfixes, global and device-specific
+ Reborn Addons V2
 
-### 10.1.2
-* Master Key #2 fix
+- New Added Sony's Movie Creator
+- New Added Sony's Backup and Restore app 
+- Added Xperia Wallpapers in the personalization section
+- Created section for the Reborn Tweaks
+- Added Battery featured Tweaks (Coming soon also the Performance ones...)
+- Added a little description for each app
+- Two different types of Reborn Tweaks (Performance and Battery saving)
+- Some other minor changes made in the aroma installer 
+- Added Signature and ROM verification 
 
-### 10.1.1
-* Master Key #1 fix
+Release 11
 
-### 10.1.0
-* Common: Android 4.2.2 (Google)
-* Common: cLock Lockscreen and Homescreen Widget
-* Common: Theme Engine Support
-* Common: Customize Navigation Bar (on devices without hardware keys)
-* Common: Customize Notification Light
-* Common: Display Battery Light
-* Common: Profiles with NFC support
-* Common: Customize Screen Rotation
-* Common: Notification Power Widgets
-* Common: DSP Manager
-* Common: Volume Rocker Wake
-* Common: Performance Settings (I/O Scheduler, CPU Governor, etc)
-* Quick Settings: Panel Customization
-* Quick Settings: Toggle QS panel with horizontal swipe
-* Quick Settings: Split QS actionable area
-* Quick Settings: Added QS Tiles
-* Status Bar: Hide or Show Clock
-* Status Bar: Battery Percentage and Circle Battery
-* Status Bar: Show Notification Counts
-* Status Bar: Signal Status Customization
-* Status Bar: Set Date and Time as buttons (with longpress actions)
-* Trebuchet: Launcher Updates
-* Lockscreen: Slider Shortcuts
-* Lockscreen: Maximize Widgets on Wake
+ **System**
 
-### 10.0.0
-* Common: Android 4.1.2 (Google)
+- Updated GApps 
+- Solved the Walkman problem regarding the volume
+- Implemented and added AC!ID Audio Engine (For Now)
+- Removed the eXtreme Beats audio Engine
+- Fixed the double tap status bar problem to lock the screen
+- Clear Audio+ is activated by default from buil.prop (So if you don't
+  notice any difference when activating it's for that)
+- Removed the SoundEnhancement app due to the known issue in Walkman
+  regarding the volume (Temporally removed)
+- New Bootanimation (Many thanks MajorD.)
+- Updated GApps
 
-### 9.0.0
-* Common: Android 4.0.4 (Google)
+ **XPERIA APPS**
 
-### 7.1.0
-* Common: Android 2.3.7 (Google)
-* Common: Bluetooth mouse support - Scott Brady
-* Common: Improve notification swipe-to-clear - Evan Charlton
-* Common: Improve album-artist support in media scanner - Paul Crovella
-* Common: Profile improvements and bugfixes - Martin Long, Danny Baumann, Robert Burns
-* Common: RTL text improvements - Eyad Aboulouz, Eran Mizrahi
-* Common: Wake on volume key option - Sven Dawitz
-* Common: Support for revoking application permissions - Plamen K. Kosseff
-* Common: Latest Superuser app - ChainsDD
-* Common: Control brightness by sliding on statusbar - Danesh M
-* Common: Add "copy all" to context menu - Danesh M
-* Common: Lockscreen haptic and statusbar indicators toggle - Danesh M
-* Common: Nicer timepicker/datepicker - Jiri Tyr
-* Common: Configuration 0/90/180/270 rotation - Jonas Larsson, Scott Brady
-* Common: DSP Manager bugfixes and improvements - Antti S Lankila
-* Common: Support for launching apps via gestures in the background - Jiri Tyr
-* Common: Option to hide hold button during call - Roberto Leinardi
-* Common: Allow using wildcards for call blacklisting - Nihanth Subramanya
-* Common: Option to allow in-call lockscreen to match main lockscren - Sven Dawitz
-* Common: Option to notify about incoming call only in background when screen is on - Pavel Kucera
-* Common: ADWLauncher- Transitions, catalog improvements, bugfixes - John Van Etten
-* Common: Optional GMT correction for SMS/MMS timestamps - Terry Hau
-* Common: Add FM Seek for TI devices - KalimochoAz
-* Common: Add FM support for SI4708 devices (Blade, V9, Racer) - Stéphane Konstantaropoulos
-* Common: Add FM seek implementation to FM application - Tom Giordano
-* Common: Show current FM status on lockscreen - Tom Giordano
-* Common: Camera touch-to-focus - cyanogen, arcee, m0viefreak, Danny Baumann
-* Common: Screenshot feature via power menu - arcee
-* Common: WEBP backport - Vikas Arora
-* Common: Add CM copyright noticies - arcee
-* Common: Skia/Zlib/libcore ARM optimizations - 0xlab
-* Common: Bluetooth tethering - Stéphane Konstantaropoulos
-* Common: Lockscreen widget alignment - Danesh Mondegarian
-* Common: Lockscreen calendar - David Morgan
-* Common: AVRCP 1.3 support - Qualcomm (bugfix by Danny Baumann)
-* Common: LED notification overhaul - Danny Baumann
-* Common: System-wide DNS cache - Google, SEMC
-* Common: Headset icon toggle - Cameron Pickett
-* Common: FM seek support - Emilio López, Tom Giordano
-* Common: Editable event fields in Contacts app - Danny Baumann
-* Common: Remove compromised CA from system certs - Guardian Project
-* Common: Mute camera shutter option - George Maizel
-* Common: Camera timer - Danesh Mondegarian
-* Common: "Mark all read" option in MMS - Vinod Surendran
-* Common: "eat" pushes fresh brunch/breakfast to device - Ricardo Cerqueira
-* Common: Customizable account color chip in Email - copolii
-* Common: "Rings" lockscreen - Valera Trubachev
-* Click, Motorola: Speed up photo recording - Emilio López
-* Click, Motorola: Add Geolocation to photo app - KalimochoAz
-* Click: Upgraded kernel from HTC 2.6.29 to 2.6.35
-* HTC msm7x30: 2.6.35 kernel and updated userspace
-* Buzz: 2.6.35 kernel - Arne Coucheron
-* Bravo(c)/Vivo(w)/Ace/Liberty: On charge notification led - Richard Antony Burton
-* Crespo/Crespo4G: Kernel update 2.6.35.14 and more, voodoo implementation, BLN, BLX...
-* Encore: Update kernel from 2.6.29 to 2.6.32 - Dalingrin,Fattire,Verygreen
-* Encore: New GPU drivers and userspace libs
-* Encore: Adjustable clockspeed and voltage - Dalingrin
-* Encore: Backport 2.6.35 Bluetooth - Fattire
-* Encore: Working mem sleep
-* Encore: USB host support - Verygreen
+- Updated Walkman to version 8.4.A.5.3 (Z3 Initial Release)
+- Updated Xperia Theme with some new Z3 elements! (thanks Ashish Dubey)
 
-### 7.0.3
-* Common: Don't allow packages with platform keys on user-controlled storage
+ **Reborn Tweaks**
 
-### 7.0.2
-* Common: Fix issue with missing built-in themes
-* Common: Update bundled ROM Manager to latest version
-* Supersonic: Actually fix GPS
-* Supersonic: Fix proximity and light sensor
+Reborn Tweaks V6
 
-### 7.0.1
-* Common: Fix fling velocity of status bar and ADW swipe - Sven Dawitz
-* Common: Fixed webview layout bug (issue 3229) - Zinx
-* Common: Fix GVoice-opens-twice bug - Zinx
-* Common: Fix issues on all devices with DNS resolution failure after some time - Zinx, various
-* Common: RTL improvements - Eran Mizrahi, Eyad Aboulouz
-* Common: Fix crashes in Arabic locale - Eyad Aboulouz
-* Common: Add Arabic keylayout - Eyad Aboulouz
-* Common: Improve ADWLauncher scrolling/zoom performance - Pavel Kucera
-* Common: Fix excessive memory use when appending to textviews - Cyanogen
-* Common: New wallpapers from the CM community (CC License, see app for credits)
-* Common: Option to disable vibration while in-call - Evan Charlton
-* Common: Add long press option to status bar widgets for settings - Alex Avance
-* Common: Compact carrier and status bar tweaks - Nihanth Subramanya, rorifree
-* Sholes: Fix connectivity loss bug - cvpcs
-* Speedy: Fix keyboard lights - JD Horelick
-* Glacier: Fix backlights - Zinx
-* Glacier: fix GPS issues - Zinx/QCom
-* msm7x30: Fix bugs during video resume - Zinx
-* qsd8x50: Fix 720p video playback
-* qsd8x50: Unified 2.6.37 kernel - Cyanogen, toastcfh, slayher
-* Espresso, Legend: WiFi fix (HTC)
-* Supersonic: Fix GPS issues (HTC)
-* msm7227: Fix GPS issues - Alex Hofbauer
-* Click: Fix recovery kernel and compilation. Now works well with latest code - KalimochoAz
-* Click: Speed up internet connection - KalimochoAz
-* Blade: Update kernel to match Gen2 Radio - kallt_kaffe
-* Blade: Update libaudio to fix SIP audio routing and microphone mute - Tom Giordano
+- Added PureGraphics HD
+- Added Supercharger V6 (Provides Video entropy like Seeder)
+- Some changes in the governor and I/O scripts in init.d
+- Mega clean-up for all the build.prop tweaks
+- Mega clean-up for all the init.d scripts
+- Added new ones instead
+- Updated host file regarding the Ads Block 
 
-### 7.0.0
-* Common: Android 2.3.3 (Gingerbread) - Google
-* Common: Fixes and changes from AOSP master - Various
-* Common: ClockworkMod Recovery 3.0: Koush, Cyanogen, Zinx
-* Common: Themes engine - T-Mobile
-* Common: Performance enhancements for Qualcomm hardware - Code Aurora
-* Common: New boot animation - 73v1n - http://www.youtube.com/watch?v=mYXiKWwp0DQ
-* Common: Fix readahead values for NAND/MMC devices
-* Common: Revamped notification widget - cvpcs
-* Common: Updated various graphics for GB style - blunden
-* Common: DSPManager updated for 2.3 - alankila
-* Common: Restyled music app and forward-port of features - Jason Asher
-* Common: Rotary answer in Phone app - James Peterson
-* Common: BT VoiceDialer fixes - Matthew Sparby
-* Common: Calendar enhancements - James Peterson
-* Common: Stagefright fixes for 7x30, 8x50, and 7x27 - Zinx, arcee, Cyanogen
-* Common: Pacman package manager - Kmobs
-* Common: Workaround for unknown phone number - Jiri Tyr
-* Common: Trackball answer/hangup - Juan Rodriguez
-* Common: CMParts reorganization - Robert Burns
-* Common: View ChangeLog via CMParts (System) - Wes Garner
-* Common: Optional screen on/off animations - Diogo Ferreira
-* Common: New browser incognito mode - optedoblivion
-* Common: New trackball/trackpad wake - Zinx, Cyanogen
-* Common: Legacy sensor/GPS support - arcee
-* Common: Enabled v8 javascript engine on armv6 (msm7227/msm7225) - arcee
-* Common: Customizable overscroll - arcee
-* Common: Torch cleanup - defer
-* Common: 2D compositor backwards compatibility - arcee
-* Common: OpenGL backwards compatibility - Zinx, Cyanogen, Sileht, ezterry
-* Common: SMS templates using gestures - Riccardo Ciovati
-* Common: Phone Goggles - David Bidorff
-* Common: Option to always show battery percentage on lockscreen - Robert Burns
-* Common: Option to show music controls with compatible headset connection - Wes Garner
-* Common: CPU frequency/scaling control in CMParts - Robert Ramiega
-* Common: Option to pause/play music with camera button - cvpcs
-* Common: Allow SIP User-Agent configuration - arcee
-* Common (non-HTC): Fixed mobile connection suspension - arcee
-* Common: New music widgets - Jason Asher
-* Common: Updated FLAC support - cvpcs, Cyanogen, kroot
-* Common: Updated wallpapers - Fitsnugly, Prash
-* Common: Customizable search/long-press search - Sven Dawitz
-* Common: New lockscreen styles - Rotary Revamped (default) and Lense - Sven Dawitz, Stefano Pignataro
-* Common: Customizable app launcher on rotary lockscreen - Sven Dawitz
-* Common: Now playing and album art on lockscreen - kmobs
-* Common: GPS fixes - CodeAurora, arcee
-* Common: Breakfast/Brunch - arcee
-* Common: Statusbar battery percentage with mini icon - Sven Dawitz, design by Jazz Kalsi
-* Common: SMS split for braindead carriers - Mike Wielgosz
-* Common: MMS user-defined custom vibrate - Wes Garner
-* Common: CMParts cleanup - Sven Dawitz
-* Common: Notification profiles - Martin Long
-* Common: TI wl12xx FM radio reverse engineering - Michael A. Reid
-* Common: Tablet tweaks - Sven Dawitz
-* Common: Revamped CMStats - Chris Soyars
-* Common: Improved RTL text support and fonts - Eyad Aboulouz, Eran Mizrahi,
-* Espresso/Legend: Enabled native WiFi tethering - Cyanogen, OMAPZoom.org
-* Legend/Liberty/Buzz/Click: Enabled FM Radio - Alexander Hofbauer (libaudio patch)
-* Z71: Enabled MPEG4/AAC video recording - arcee
-* Z71: Enabled native WiFi tethering - arcee
-* Passion/Bravo/BravoC/Supersonic/Inc: Kernel 2.6.37 - Google, Cyanogen, defer, Kali-, toastcfh, slayher
-* Vision/Glacier/Espresso: WiFi calling compatibility and optimization - Zinx
-* Vision/Glacier/Ace: Unified kernel - HTC, Cyanogen, Zinx, Kali-, defer
-* Vision/Glacier/Ace: Fix FM radio on 2.3 - Zinx
-* Vision/Glacier/Ace: Fixes for video overlay - Zinx, CodeAurora
-* Vision: Only install WiFi calling on TMUS devices - attn1
-* Espresso/Legend/Liberty: Unified kernel - HTC, Cyanogen, attn1, jznomoney, Alexander Hofbauer
-* Supersonic: WiMAX support - HTC, Shinzul, toastcfh, shift, #teamwin, Cyanogen, Joey Conway
-* Supersonic: HDMI mirror support: #teamwin
-* ONE: Enabled native WiFi tethering - arcee
+
+Release 10
+
+ **System**
+
+- Merged latest changes by CYANOGENMOD (Release 13)
+- Updated K^Kernel by Christopher83 
+- Old Settings app (If you want the new one to swap the memory check the download section) 
+- Updated eXtreme Beats (Now with compatibility mode) 
+- Updated Performance Control 
+- Updated OTA Updater 
+- Some clean up in build. Prop Updater-script 
+- Some other minor fixes like better stability and other... 
+
+ **XPERIA APPS**
+
+- Updated Xperia Home (Z3 Version) 
+- Introducing Sony's Smart Connect
+- Introducing Sony's LifeLog 
+- Updated Clocks widgets, Weather widget 
+- Updated WALKMAN (Latest Update for the Z2 Version) 
+- Updated Movies App (Latest Update for the Z2 Version) 
+- Z3 Media (Phone Ringtones, system sounds ecc....) 
+- New Xperia Z3 Wallpapers 
+
+ **Reborn Tweaks**
+
+ init.d
+
+- Removed all the init.d scripts at the moment but they will be reintroduced in the next releases...
+- New Tweaks regarding the security 
+- Updated hosts file in order to block every single add while you are surfing the internet
+
+ build.Prop
+
+- build.Prop cleanup 
+- New Liquid Tweaks 
+
+Release 9
+
+Skipped
+
+Release 8
+
+Skipped
+
+Release 7
+
+ **System**
+
+- Very Big revision made for the System Base(Removed a lot of unused things)
+- Solved finally the problem with the Google CalendarSync Adapter
+- Updated GAPPS
+- Final fixes for OTA Update.(Now is fully working so you should   receive the new updates from now on 
+- Implemented eXtremeBeats™ Audio Mod instead of use Viper. Use DSP Manager just to use the equalizer but don't use any other mods over this!! (Full credits are given to Applicare Studios for original work)
+- More System space now and ROM is now slimmed a bit with 30 mb less
+
+ **Xperia APPS**
+
+- Very Big revision made to the Xperia APPS files
+- Updated Xperia Z2 Launcher to version 6.3.A.0.5 
+- Updated Xperia Weather widget
+- Added/Updated Xperia Music Widget (Original this time)
+- Solved the download music info (Now it will not cause you force closes)
+- Updated Movies app to version 7.1.A.0.4
+- ClearAudio+ NOW FULLY WORKING!! 
+
+ **Reborn Tweaks**
+
+build.prop
+
+-Removed old Xperia Tweaks and replaced with the Reborn Audio Tweaks(credits to Applicare Studios)
+  
+Release 6
+
+ **System** 
+
+- Merged latest changes made by ADC Team 
+- Added ROM ChangeLOG in About Phone section
+- Added ROM banner in settings
+- Implemented S+ Updates in About Phone section 
+- More small changes made in settings. You will observe by your self
+- Updated META-INF directory with the new update-script
+- Updated K^ Kernel by Christopher83
+- Updated GAPPS
+- Updated Performance Control   
+- Removed some apps originally from stock CM
+- Fixed some problems with theme chooser
+- Overall ROM performance increased  
+
+ **Xperia APPS**
+
+-  Updated WALKMAN to latest version from Xperia Z2
+-  Removed Album app due to force closes (Needs work on it)   
+-  Updated Video app to latest version
+-  Updated Xperia tweaks 
+-  Temporarely removed the WALKMAN widget due to incompattibility
+-  Reverted back to old SystemUI because the older one cause many crashes
+-  Added/Updated Xperia Z2 Keyboard
+-  Added Xperia Z2 fonts and replaced the old ones
+-  Added Xperia Z2 sounds and replaced the old ones
+-  Updated XperiaZ2 Theme (Very thanks to thomassafca for providing me the modified theme)
+
+ **Reborn Tweaks**
+
+Alright i will not tell you all the changes made but just the most relevant 
+
+Reborn TweaksV4
+
+ build.prop
+
+- Updated the present Tweaks with some modifications 
+- Added and introducing Qualcomm tweaks
+- Added and introducing  Liquid Smooth Ui tweaks
+- Added some new Wireless tweaks and some new mobile data tweaks
+
+init.d
+
+-  Updated Defrags Database command (VACCUM) thanks Costinutz32
+-  Added cleaner script (which it will be runned every 30 hours at boot time) 
+-  Added Governor tweaks for the following ones: Ondemand OndemandX Conservative Lulzactive and SmartassV2
+-  Updated auto-zipalign script (now the script will run also for the framework and system apps) thanks Costinutz32
+
+
+Release 5
+
+- Merged Latest changes made by ADC Team 
+- Updated K^ Kernel 
+- Removed Desk Clock 
+- Removed Xperia Sketch
+- ROM is now signed
+- ViperFX engine is now standalone app and it's available to download in the desciption 
+- Reputted the bootanimation 
+- NEW Xperia Z2 Calendar with Tasks
+- NEW Xperia Z2 Launcher  
+- Fixed (Maybe) the Google sync calendar  
+- Xperia Z2 SystemUI (Very thanks to ashishdubey for original porting)
+- Some changes in updater-script and build.prop
+- Updated Gapps to latest version
+- Removed YouTubeKaraokePlugin.apk and YouTubePlugin.apk
+- S+ Reborn is now part of the XOSP Project so the ROM now on will be again S+ Reborn
+- And some other minor things that i don't remember
+
+Release 4
+
+- Merged Latest changes made by ADC Team (Release 2)
+- Updatad K^ Kernel
+- Updated Gapps
+- Re Added ViperFX Engine
+- Removed SoundEnhancement
+- Reborn Tweaks V3
+- Updated Xperia Notes (New Graphic!)
+- Added for this version Fast Boot (So if you don't see the bootanimation don't panic i'ts normal,just wait till the screen appears)
+- Updated Clocks Widgets
+- Removed OTA Updater 
+- Updated Performance Control 
+
+Release 3
+## Rebranded Project Name##
+
+- Merged latest changes made by ADC Team
+- Updated K^ Kernel
+- Fixed the problem with the not showing correctly search bar in the app drawer
+- Fixed the problem with launcher crash when trying to uninstall an app
+- Updated Xperia widgets
+- Album fully functional Now!
+- Removed Viper FX Engine (Temporally), use DSP manager instead
+- Updated Performance Control 
+- Updated WALKMAN (Fixed some bugs, and partially fixed the download music info)
+- And some other changes that i forget in this moment ;)
+
+Release 2.1 
+
+- Fixed zRAM issue. Check the first post for more informations..
+
+Release 2
+          
+	ROM More Faster than EVER!!
+- Updated ROM Base to the latest by ADC Team
+- Changed Kernel with the K^ Kernel by Christopher
+- Updated Xperia Launcher (More fluid now!!)
+- Updated Performance Control
+- Fixed Google DNS Problem
+- Added Xperia Z Ultra Calendar /Remove Stock Calendar
+- Added Xperia Z Ultra Clock /Remove Stock Clock
+- Partially fixed the problem with Album
+- Partially fixed the problem with ViperFX Engine, you can use it like equalizer
+- Updated Xperia Theme
+- Removed Xperia Converter
+- Removed Xperia Unused Plugins like facebook, twitter ecc....
+- Removed SMC DLNA due to incompatibility 
+- Added Xperia Scratch 
+- Updated Xperia Keyboard (Now with less RAM consumption)
+- Fixed the Problem with OTA Updater
+- Updated WALKMAN to version 8.1.A.0.3 with All Features
+- Updated Album to version 5.3.A.0.22 with Photo Sildeshow and Photo Editor(NEW)
+- Updated Movies to version 5.3.A.0.18 with VideoUnlimited
+- And a lot of other fixes that i don't remember :)  
+
+Release 1
+
+- Initial Release 
+
+**************************************
+        Based on Android 4.3        
+**************************************
+
+
+Beta 2
+
+- Changed ROM Base to Carbon ROM by educk
+- Changed Ka Kernel to Phenom Kernel by educk
+- Added ROM Stats
+- Updated Performance Control 
+
+Beta 1
+ 
+- Initial Release
+
+**************************************
+        Based on Android 4.2        
+**************************************
+
+
+Release 6 PMEM (EOL)
+
+- Updated K^Kernel to 2.5 Version (Thanks Christopher)
+- Updated ROM Base to the Release 8 by ADC Team
+- Reverted to stock calendar due to FCs and not    Synchronize Google account
+- Removed all the Plug-ins located in the Xperia apps
+- Updated Xperia Keyboard (Thanks Rizal)
+- Updated ViPER4Android 
+- Reverted back to old Xperia_Launcher_2.apk
+- Updated Fly ON Mod Tweaks
+- Updated PerformanceControl.apk
+- Some minor improvements made to the ROM
+   
+  PLEASE REFER to the ADC Team thread to how to recalibrate the sensors!!
+
+
+Release 5
+
+- Updated K^Kernel to 2.3 Version (Thanks Christopher)
+- Added Viper4Android FX Engine
+- Added Official S+ Reborn Bootanimation (Thanks Cooptx)
+- Updated X Reality Engine and Xperia Apps 
+- Updated WALKMAN (New Graphic!!)
+- Fixed the problem with the WALKMAN widget
+- Fixed the non Displayed Icons (Maybe)
+
+
+Release 4
+
+- Removed Xperia Z Launcher and Added Xperia Z Ultra Launcher
+- Updated Xperia Tweaks in build.prop
+- Added Music Widget for WALKMAN
+- Updated Xperia widgets for the new launcher
+- Updated PerformanceControl.apk
+- Updated RomStats.apk
+- Added MySQL data base cleaner (VACCUM Command at    every boot)
+- Updated Fly On Mod Tweaks to Beta 5
+- Removed Stock Calculator and Calendar
+- Added Xperia Calculator
+- Added Xperia Calendar
+- Added Xperia Convertor
+- Some other improvements made to the ROM
+
+
+Release 3
+
+- Updated ROM Base to CM 10.1 Release 7 By ADC Team
+- Updated Kernel to 2.2 Version (Thanks Christopher)
+- Some improvements made to the ROM and Theme
+- Added ROM Stats 
+- Added Grenify like System App
+- Updated Performance Control  
+
+
+Release 2
+ 
+- Deleted some unused files
+- Updated Xperia System Theme 
+- Removed Old Xperia Z Keyboard
+- Added NEW Xperia i1 Keyboard 
+- Removed Facebook plug-ins
+- Removed You Tube plug-ins
+- Removed Wikipedia plug-in
+
+
+Release 1
+ 
+- Updated ROM Base To CM 10.1 RC 6
+- Added Xperia Fonts
+- Added Xperia Sounds
+- Added PerformanceControl.apk
+- Updated bootanimation.zip
+- Added more Xperia Wallpapers
+- Updated Xperia Apps
+- Solved Issues in WALKMAN APP 
+- Updated K^Kernel to 2.1 Version 
+- Better Stability NOW and more Smooth
+- Fixed The Bug with the Theme Chooser, Now its fine
+
+
+Beta 1.5
+
+- Added Bravia Engine 3
+- Removed zGapps
+- Added S+ Reborn Tweaks
+- Added OTA Updater Support
+
+
+Beta 1 
+
+- Initial Release
+
