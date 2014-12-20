@@ -1,4 +1,4 @@
- ####''XOSP Is A Project licensed under Apache License''####
+####''XOSP Is A Project licensed under Apache License''####
 
 S+ Reborn is provided with no warranty so you're installing this ROM to your risk so if you will brick your phone and accuse me for that i will laugh at you.
 
@@ -23,6 +23,6 @@ S+ Reborn is provided with no warranty so you're installing this ROM to your ris
 - Update Smart Connect
 - Add Performance featured Reborn Tweaks 
 - Add the possibility to remove to Remove the Reborn Tweaks for the both cases
-- Add disclaimer section and Notes one (Read it please!)
-- Add Installer banner at the begging of the Aroma Installer start boot
-- Add compatibility for galaxysmtd
+- Add disclaimer section and Notes one (Read it please!)   Done!
+- Add Installer banner at the begging of the Aroma Installer start boot  Done!
+- Add compatibility for galaxysmtd  Done!
