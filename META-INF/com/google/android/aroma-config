@@ -28,11 +28,22 @@
 # Initializing Rom Information
 #
 ini_set("rom_name",             "Reborn Addons");
-ini_set("rom_version",          "2.7");
+ini_set("rom_version",          "3.0");
 ini_set("rom_author",           "nilac8991");
 ini_set("rom_device",           "Samsung Galaxy S Plus");
-ini_set("rom_date",             "Dec, 14 2014");
+ini_set("rom_date",             "Dec, 20 2014");
 
+
+##
+# Show static splash
+#
+splash(
+#  #-- Duration 4000ms / 4 seconds
+    2000,
+  
+  #-- <AROMA Resource Dir>/arhdsplash.png
+    "arhdsplash"
+);
 ##
 # Show Animated Splash
 #
@@ -63,10 +74,10 @@ viewbox(
     "Welcome!",
   
   #-- Text
-    "Welcome to the<b>"+
+    "Welcome to the <b>"+
 	  #-- Get Config Value
 	  ini_get("rom_name")+
-	"</b>Installation for<b>"+ini_get("rom_device")+"</b>.\n\n"+
+	"</b> for <b>"+ini_get("rom_device")+"</b>.\n\n"+
 	
       "Version(Release)\t: <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
       "Updated on\t\t: <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
@@ -77,10 +88,26 @@ viewbox(
     "@welcome"
 );
 
+###################################################################################################################
+#
+# STEP 3 - Notes and Disclaimer
+#
+textbox(
+  
+  "Disclaimer and Notes",
+
+  "Read them because there are important!",
+
+  "@info",
+
+  resread("disclaimer.txt")
+
+);
+
 
 ###################################################################################################################
 #
-# STEP 3 - CHANGELOG
+# STEP 4 - CHANGELOG
 #
 textbox(
   #-- Title
@@ -98,7 +125,7 @@ textbox(
 
 ###################################################################################################################
 #
-# STEP 4 - Utility Xperia Apps
+# STEP 5 - Utility Xperia Apps
 #
 
 checkbox(
@@ -111,13 +138,13 @@ checkbox(
 	"Smart Connect", "Smart Connect actually let's you set up different profiles according to your phone usage (Headphones ecc...)", 0,
 	"Xperia Recorder", "It let you make sound recordings", 0,
 	"Xperia Converter", "It let you make any kind of values conversions like value,height ecc...", 0,
-        "Sony's Backup and Restore", "It let you backup your calendar events,bookmarks ecc...",0
+  "Sony's Backup and Restore", "It let you backup your calendar events,bookmarks ecc...",0
 
 );
 
 ###################################################################################################################
 #
-# STEP 5 - Personalization
+# STEP 6 - Personalization
 #
 
 checkbox(
@@ -142,7 +169,7 @@ checkbox(
 
 ###################################################################################################################
 #
-# STEP 6 - Reborn Tweaks Introduction
+# STEP 7 - Reborn Tweaks Introduction
 #
 
   textbox(
@@ -158,7 +185,7 @@ checkbox(
 
 ###################################################################################################################
 #
-# STEP 7 - Reborn Tweaks
+# STEP 8 - Reborn Tweaks
 #
 
 selectbox(
@@ -186,7 +213,18 @@ selectbox(
 
 ###################################################################################################################
 #
-# STEP 8 - Installation
+# STEP 9 - Ad Block Choice
+#
+
+#selectbox(
+#  "Ad Block Tweaks",             ---------------> To be added 
+
+# "Please choose if you want to modify the hosts file by blocking all the internet ads"
+ # )
+
+###################################################################################################################
+#
+# STEP 9 - Installation
 #
 
 ini_set("text_next", "Install now");
@@ -194,7 +232,7 @@ ini_set("text_next", "Install now");
 viewbox(
     "Ready to install",
     "You are now ready to begin installation.\n\n"+
-    "Press <b>Install now</b> to start.\n\n"+
+    "Press <b>Install now</b> to start.\n\n"+`
     "If you want to review or change any of your installation settings, press <b>Back</b>.",
     "@install"
 );

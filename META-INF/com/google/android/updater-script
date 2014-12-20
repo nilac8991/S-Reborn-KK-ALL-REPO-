@@ -8,8 +8,9 @@ ui_print(" ");
 ui_print(" ");	   
 
 
-assert(getprop("ro.product.name") == "sreborn_ariesve" || getprop("ro.product.name") == "sreborn_ariesve" || 
-       getprop("ro.product.device") == "ariesve" || getprop("ro.build.product") == "ariesve" || abort("This package is only for \"S+ Reborn users!!\"; this is a \"" + getprop("ro.build.display.id") + "\ROM\"."););
+assert(getprop("ro.product.name") == "sreborn_galaxysmtd" 
+    || getprop("ro.product.name") == "sreborn_ariesve" 
+    || abort("This package is only for \"S+ Reborn users!!\"; this is a \"" + getprop("ro.build.display.id") + "\ROM\"."););
 
 mount("ext4", "EMMC", "/dev/block/mmcblk0p15", "/system");
 mount("ext4", "EMMC", "/dev/block/mmcblk0p17", "/data");
@@ -66,7 +67,7 @@ ui_print(" ");
 ui_print("***************************************************");
 ui_print("              XOSP Project Presents                ");
 ui_print("            Reborn Tweaks powered by               ");
-ui_print("	           ◢ PurePerformances™X ◣                ");
+ui_print("	             PurePerformances™X                  ");
 ui_print("***************************************************");
 ui_print(" ");
 ui_print(" ");	   
