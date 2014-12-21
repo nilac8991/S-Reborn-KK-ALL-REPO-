@@ -1,5 +1,5 @@
  
-###################''XOSP Reborn Is A Project licensed under Apache License''#########################
+###################''XOSP Is A Project licensed under Apache License''#########################
 
 #Release 1#
 
