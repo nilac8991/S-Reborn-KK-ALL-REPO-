@@ -4,6 +4,7 @@
 #Release 1#
 
 **For galaxysmtd**
+
  - Sources synched with the ariesve ones from Release 12 (Check arisve branch for full changelog)
  - First release for galaxysmtd 
  - Based on latest NIGHTLY (still the one from 17/12/14)
