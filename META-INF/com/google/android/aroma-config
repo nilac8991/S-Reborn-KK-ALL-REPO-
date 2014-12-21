@@ -232,7 +232,7 @@ ini_set("text_next", "Install now");
 viewbox(
     "Ready to install",
     "You are now ready to begin installation.\n\n"+
-    "Press <b>Install now</b> to start.\n\n"+`
+    "Press <b>Install now</b> to start.\n\n"+
     "If you want to review or change any of your installation settings, press <b>Back</b>.",
     "@install"
 );
