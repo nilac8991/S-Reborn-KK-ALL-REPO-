@@ -28,11 +28,10 @@
 # Initializing Rom Information
 #
 ini_set("rom_name",             "Reborn Addons");
-ini_set("rom_version",          "3.0");
+ini_set("rom_version",          "3.2");
 ini_set("rom_author",           "nilac8991");
-ini_set("rom_device",           "Samsung Galaxy S Plus");
-ini_set("rom_date",             "Dec, 20 2014");
-
+ini_set("rom_device",           "All S+ Reborn supported devices");
+ini_set("rom_date",             "Dec, 24 2014");
 
 ##
 # Show static splash
@@ -44,6 +43,7 @@ splash(
   #-- <AROMA Resource Dir>/arhdsplash.png
     "arhdsplash"
 );
+
 ##
 # Show Animated Splash
 #
@@ -77,7 +77,7 @@ viewbox(
     "Welcome to the <b>"+
 	  #-- Get Config Value
 	  ini_get("rom_name")+
-	"</b> for <b>"+ini_get("rom_device")+"</b>.\n\n"+
+	"</b> Installation for <b>"+ini_get("rom_device")+"</b>.\n\n"+
 	
       "Version(Release)\t: <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
       "Updated on\t\t: <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
@@ -98,12 +98,11 @@ textbox(
 
   "Read them because there are important!",
 
-  "@info",
+  "@agreement",
 
   resread("disclaimer.txt")
 
 );
-
 
 ###################################################################################################################
 #
@@ -138,7 +137,7 @@ checkbox(
 	"Smart Connect", "Smart Connect actually let's you set up different profiles according to your phone usage (Headphones ecc...)", 0,
 	"Xperia Recorder", "It let you make sound recordings", 0,
 	"Xperia Converter", "It let you make any kind of values conversions like value,height ecc...", 0,
-  "Sony's Backup and Restore", "It let you backup your calendar events,bookmarks ecc...",0
+        "Sony's Backup and Restore", "It let you backup your calendar events,bookmarks ecc...",0
 
 );
 
@@ -177,7 +176,7 @@ checkbox(
 
     "Disclaimer:",
     
-    "@info",
+    "@agreement",
     
     resread("reborntweaksintroduction.txt")
 );
@@ -203,28 +202,37 @@ selectbox(
                               #Tweaks designed to get from the device the most of performance
 
 
-  "Reborn Tweaks Performance featured", "NOT Working so don't try to install it!!",1,
-  "Reborn Tweaks Battery featured", "Tweaks designed to provide a excelent management of the battery consumption",0,
+  "Reborn Tweaks Performance featured", "Coming Soon.....",0,
+  "Reborn Tweaks Battery featured", "Tweaks designed to provide a excelent management of the battery consumption",1,
+  "Reborn Tweaks Uninstall", "It's a script that permites you to remove the Installed Tweaks",0,
   "Balanced", "leave the ROM as it is in this moment",0
 
 );
 
+###################################################################################################################
+#
+# STEP 9 - Ads Block Choice
+#
 
+pleasewait("Loading...");
+
+selectbox(
+  "Ads Block Tweaks",           
+
+  "Please choose if you want to modify the hosts file by blocking all the internet ads",
+
+  "@tweaks",
+
+  "adsblock.prop",
+
+  "Yes i want it","",1,
+  "No i don't want it","",0
+
+);
 
 ###################################################################################################################
 #
-# STEP 9 - Ad Block Choice
-#
-
-#selectbox(
-#  "Ad Block Tweaks",             ---------------> To be added 
-
-# "Please choose if you want to modify the hosts file by blocking all the internet ads"
- # )
-
-###################################################################################################################
-#
-# STEP 9 - Installation
+# STEP 8 - Installation
 #
 
 ini_set("text_next", "Install now");

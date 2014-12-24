@@ -2,14 +2,15 @@ ui_print(" ");
 ui_print(" ");
 ui_print("***************************************************");
 ui_print("              XOSP Project Presents                ");
-ui_print("          Reborn Addons V2 for S+ Reborn           ");
+ui_print("          Reborn Addons V3 for S+ Reborn           ");
 ui_print("***************************************************");
 ui_print(" ");
 ui_print(" ");	   
 
 
-assert(getprop("ro.product.name") == "sreborn_galaxysmtd" 
-    || getprop("ro.product.name") == "sreborn_ariesve" 
+assert(getprop("ro.product.name") == "sreborn_galaxysmtd" || getprop("ro.product.device") == "GT-I9000" 
+    || getprop("ro.product.name") == "sreborn_vibrantmtd" 
+    || getprop("ro.product.name") == "sreborn_ariesve" || getprop("ro.product.device") == "ariesve" 
     || abort("This package is only for \"S+ Reborn users!!\"; this is a \"" + getprop("ro.build.display.id") + "\ROM\"."););
 
 mount("ext4", "EMMC", "/dev/block/mmcblk0p15", "/system");
@@ -59,131 +60,9 @@ endif;
 
 ##Reborn Tweaks##
 
-if
-file_getprop("/tmp/aroma-data/reborntweaks.prop","selected.0") == "1"
-then
-ui_print(" ");
-ui_print(" ");
-ui_print("***************************************************");
-ui_print("              XOSP Project Presents                ");
-ui_print("            Reborn Tweaks powered by               ");
-ui_print("	             PurePerformances™X                  ");
-ui_print("***************************************************");
-ui_print(" ");
-ui_print(" ");	   
-package_extract_dir("Tweaks/Performance/setup", "/tmp"); 
-set_perm_recursive(0, 0, 0755, 0755, "/tmp");
-run_program("/sbin/busybox","chmod","-R","0755","/tmp");
-run_program("/sbin/busybox","chown","-R","0.0","/tmp");
-set_perm(0, 0, 0755, "/tmp/busybox");
-run_program("/tmp/busybox","chmod","-R","0755","/tmp");
-run_program("/tmp/busybox","chown","-R","0.0","/tmp");
-run_program("/tmp/busybox","mount","/system");
-run_program("/sbin/busybox","mount","/system");
-run_program("/tmp/busybox","mount","-o","rw,remount","/system");
-run_program("/sbin/busybox","mount","-o","rw,remount","/system");
-run_program("/tmp/busybox","mount","/data");
-run_program("/sbin/busybox","mount","/data");
-run_program("/tmp/busybox","mount","-o","rw,remount","/data");
-run_program("/sbin/busybox","mount","-o","rw,remount","/data");
-run_program("/tmp/busybox","rm","-fr","/system/etc/CrossBreeder");
-run_program("/tmp/busybox","mkdir","-p","/system/etc/CrossBreeder");
-run_program("/tmp/busybox","cp","-f","/tmp/tune2fs","/system/etc/CrossBreeder");
-#run_program("/tmp/busybox","cp","-f","/tmp/libiconv.so.2","/system/etc/CrossBreeder");
-run_program("/tmp/busybox","cp","-f","/tmp/busybox","/system/etc/CrossBreeder");
-set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
-run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
-run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
-run_program("/tmp/busybox", "echo", "Restore", "started.");
-run_program("/tmp/restore_dnsmasq.sh");
-run_program("/tmp/busybox","echo","After","Restore");
-#run_program("/tmp/busybox","mv","-f","/system/etc/hosts","/system/etc/hosts.CBBAK");
-package_extract_dir("Tweaks/Performance/system", "/system");
-run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
-#run_program("/tmp/busybox","cp","-f","/system/etc/CrossBreeder/dnsmasq","/system/bin/dnsmasq.bin");
-delete("/system/bin/dnsmasq.bin");
-run_program("/tmp/busybox", "ls", "-l", "/system/bin/dnsmasq");; 
-set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
-run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
-run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
-#set_perm_recursive(0, 0, 0711, 0444, "/system/etc/CrossBreeder/root");
-#run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/root");
-#run_program("/tmp/busybox","chmod","-R","0444","/system/etc/CrossBreeder/root");
-#run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root");
-#run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root/errors");
-run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/dnrd_root");
-run_program("/tmp/busybox","chmod","-R","0644","/system/etc/CrossBreeder/dnrd_root");
-run_program("/tmp/busybox","chmod","0755","/system/etc/CrossBreeder/dnrd_root");
-ui_print("Setting correct permissions...");
-ui_print(" ");
-#set_perm(0, 0, 0755, "/system/etc/init.d/zzCrossBreeder_initd");
-set_perm(0, 2000, 0755, "/system/xbin/haveged");
-delete("/system/xbin/CB_FileLock");
-set_perm(0, 0, 0755, "/system/etc/CrossBreeder/busybox");
-set_perm(0, 0, 0755, "/system/etc/CrossBreeder/dnrd.10053");
-set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCrossBreeder");
-set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCHECK_NET_DNS");
-set_perm(0, 0, 0755, "/system/bin/dnsmasq");
-set_perm(0, 0, 0755, "/system/bin/dnsmasq_dhcp");
-#set_perm(0, 0, 0644, "/system/etc/CrossBreeder/dnsmasq-host");
-set_perm(0, 0, 0644, "/system/etc/hosts");
-set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
-delete("/system/etc/init.d/00CrossBreeder");
-delete("/system/etc/init.d/zzCrossBreeder");
-delete("/system/etc/init.d/zzCrossBreeder_initd");
-#delete("/system/etc/CrossBreeder/dnsmasq");
-ui_print(" ");
-set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
-run_program("/tmp/busybox","mv","-f","/system/etc/install-recovery.sh.CBBAK","/system/etc/install-recovery.sh");
-run_program("/tmp/install_init_entries.sh");
-#run_program("/tmp/install_hw_entries.sh");
-#run_program("/sbin/busybox","mv","-f","/system/etc/hw_config.sh.CBBAK","/system/etc/hw_config.sh");
-run_program("/tmp/busybox","mv","-f","/system/bin/debuggerd.CBBAK","/system/bin/debuggerd");
-set_perm(0, 2000, 0755, "/system/bin/debuggerd");
-run_program("/tmp/install_debuggerd.sh");
-ui_print(" ");
-run_program("/tmp/busybox","mv","/system/xbin/rngd","/system/xbin/rngd.bak");
-run_program("/tmp/busybox","rm","-fr","/data/rngd.pid");
-run_program("/tmp/busybox","mkdir","/data/rngd.pid/");
-run_program("/tmp/busybox","chown","0:0","/data/rngd.pid");
-run_program("/tmp/busybox","chmod","-R","500","/data/rngd.pid");
-set_perm_recursive(0, 0, 0500, 0500, " /data/rngd.pid/ ");
-run_program("/tmp/busybox","mv","/system/xbin/qrngd","/system/xbin/qrngd.bak");
-run_program("/tmp/busybox","mv","/system/bin/qrngd","/system/bin/qrngd.bak");
-run_program("/tmp/REMOVE_TETHER_BOOST");
-run_program("/tmp/busybox","mv","-f","/system/etc/dnsmasq.conf.CBBAK","/system/etc/dnsmasq.conf");
-run_program("/tmp/busybox","sync");
-#run_program("/tmp/busybox","umount","/system");
-run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
-run_program("/tmp/busybox","sync");
-ui_print("Clearing dalvik-cache");
-ui_print(" ");
-#run_program("/tmp/busybox","umount","/cache");
-run_program("/tmp/busybox","umount","/sd-ext");
-package_extract_dir("Tweaks/Performance/system", "/system");
-package_extract_dir("Tweaks/Performance/data", "/data");
-set_perm_recursive(0, 2000, 0777, 0777, "/system/etc/init.d");
-set_perm_recursive(0, 2000, 0777, 0777, "/system/usr/idc");
-set_perm(0, 0, 0777, "/system/default.prop");
-set_perm(0, 0, 0777, "/system/xbin/sqlite3");
-set_perm(0, 0, 0777, "/system/xbin/zipalign");
-set_perm(0, 0, 0777, "/system/xbin/openvpn");
-set_perm(0, 0, 0777, "/system/lib/libncurses.so");
-set_perm(0, 0, 0777, "/system/lib/libsqlite.so");
-set_perm(0, 0, 0777, "/system/lib/libsqlite_jni.so");
-set_perm(0, 0, 0777, "/system/etc/init.d/S98system_tweak");
-set_perm(0, 0, 0777, "/system/etc/init.d/S70darky_zipalign");
-set_perm(0, 0, 0777, "/system/etc/init.d/sqlite_optimize");
-set_perm(0, 0, 0777, "/system/etc/init.d/ram_optimize");
-set_perm(0, 0, 0777, "/system/etc/init.d/ext4_lagfix");
-set_perm(0, 0, 0777, "/data/local.prop");
-set_perm(0, 0, 0777, "/system/usr/idc/mxt244_ts_input.idc");
-run_program("/tmp/busybox", "mount", "/data");
-run_program("/tmp/busybox", "mount", "/system");
-package_extract_file("Tweaks/Performance/add_to_buildprop.sh", "/tmp/add_to_buildprop.sh");
-set_perm(0, 0, 0777, "/tmp/add_to_buildprop.sh");
-run_program("/tmp/add_to_buildprop.sh");
-endif;
+#if
+#file_getprop("/tmp/aroma-data/reborntweaks.prop","selected.0") == "1"
+#then
 
 if
 file_getprop("/tmp/aroma-data/reborntweaks.prop","selected.0") == "2"
@@ -193,7 +72,7 @@ ui_print(" ");
 ui_print("***************************************************");
 ui_print("              XOSP Project Presents                ");
 ui_print("            Reborn Tweaks powered by               ");
-ui_print("	    NITRO X™_SPARK EDITION Tweaks            ");
+ui_print("	        NITRO X™_SPARK EDITION Tweaks            ");
 ui_print("***************************************************");
 ui_print(" ");
 ui_print(" ");
@@ -371,6 +250,65 @@ delete("/tmp/busybox");
 show_progress(0.200000, 0);	   
 endif;
 
+if
+file_getprop("/tmp/aroma-data/reborntweaks.prop","selected.0") == "3"
+then
+ui_print("Removing previously installed tweaks<<<<<");
+
+delete_recursive("/data/tombstones");
+delete_recursive("/data/dalvik-cache");
+delete_recursive("/data/boot-cache");
+delete_recursive("/data/resource-cache");
+delete_recursive("/data/Database");
+delete_recursive("/data/ModBoost");
+delete("/data/*.log");
+delete("/data/system/batterystats.bin");
+delete("/data/zipalign.db");
+delete("/system/xbin/entro");
+delete("/system/xbin/haveged");
+delete("/dev/haveged.pid");
+delete("/system/bin/sqlite3");
+delete("/system/bin/scan");
+delete("/system/bin/dnsmasqdex");
+delete("/system/bin/dnsproxy2dex");
+delete("/system/bin/pixelservdex");
+delete("/system/bin/clean");
+delete("/system/bin/EngineSqlite");
+delete("/system/bin/menu");
+delete("/system/bin/no_mod");
+delete("/system/bin/dns_on");
+delete("/system/bin/dns_off");
+delete("/system/zipalign.db");
+delete("/system/bin/nitro_on");
+delete("/system/bin/nitro_off");
+delete("/system/xbin/boost");
+delete("/system/xbin/openvpn");
+delete("/system/xbin/zipalign");
+delete("/system/xbin/sqlite3");
+delete("/system/bin/seeder");
+delete("/system/lib/libncurses.so");
+delete("/system/bin/busybox");
+delete("/system/xbin/busybox");
+delete("/system/etc/dnsmasq.conf");
+delete_recursive("/system/etc/dnsmasq");
+delete_recursive("/system/etc/crossbreeder");
+delete_recursive("/system/etc/Crossbreeder");
+delete_recursive("/system/etc/CrossBreeder");
+delete_recursive("/system/etc/seeder_scripts");
+delete_recursive("/system/etc/Ads_Nitro");
+delete_recursive("/system/etc/Nitro_Scritpts");
+endif;
+
+##Ads Block
+
+if
+file_getprop("/tmp/aroma-data/adsblock.prop","selected.0") == "1"
+then
+ui_print("Updating hosts file<<<<<");
+package_extract_dir("Tweaks/AdsBlock/system", "/system");
+endif;
+
+
 
 ##Personalize##
 
@@ -415,5 +353,3 @@ ui_print("    Comment And Rate the ROM on XDA Thread!!   ");
 ui_print("***********************************************");
 ui_print(" ");
 ui_print(" ");
-
-
