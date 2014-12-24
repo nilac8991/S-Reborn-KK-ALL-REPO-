@@ -26,3 +26,16 @@ Reborn Addons ChangeLOG
 - Updated ChangeLOG 
 - Fixed Smart Connect force close problem (Compatibillity bug)
 - Fixed also the non installation problem 
+
+##Version 3.20##
+
+- Added section for the Ads Block
+- Added compatibillity for galaxysmtd and vibrantmtd
+- Updated Lifelog
+- Updated Smart Connect
+- Updated Recorder app (New Look!)
+- Cleaned up some unnecessary files in aroma folder
+- New Smart Key
+- Added the possibillity to remove previously Reborn Tweaks intallation
+- Added Reborn Addons banner
+- Updated ROM verification for all the devices

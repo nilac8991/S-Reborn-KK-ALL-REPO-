@@ -9,7 +9,7 @@ ui_print(" ");
 
 
 assert(getprop("ro.product.name") == "sreborn_galaxysmtd" || getprop("ro.product.device") == "GT-I9000" 
-    || getprop("ro.product.name") == "sreborn_vibrantmtd" 
+    || getprop("ro.product.name") == "sreborn_vibrantmtd" || getprop("ro.product.device") == "SGH-T959" 
     || getprop("ro.product.name") == "sreborn_ariesve" || getprop("ro.product.device") == "ariesve" 
     || abort("This package is only for \"S+ Reborn users!!\"; this is a \"" + getprop("ro.build.display.id") + "\ROM\"."););
 
@@ -56,6 +56,12 @@ if file_getprop("/tmp/aroma-data/utility.prop","item.0.5") == "1"
 then 
 ui_print("Installing Sony's Backup and Restore<<<<<");
 package_extract_file("customize/APKs-Data/APKs-Data_Utility/SyncHub.apk", "/data/app/SyncHub.apk");
+endif;
+
+if file_getprop("/tmp/aroma-data/utility.prop","item.0.6") == "1" 
+then 
+ui_print("Installing Smart Key<<<<<");
+package_extract_file("customize/APKs-Data/APKs-Data_Utility/SmartKey.apk", "/data/app/SmartKey.apk");
 endif;
 
 ##Reborn Tweaks##

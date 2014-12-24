@@ -134,10 +134,12 @@ checkbox(
     	"utility.prop",
 
 	"Lifelog", "Lifelog Permites you to keep updated all your data about what you did in all days (listening to music,calories consumed ecc...)", 1,
-	"Smart Connect", "Smart Connect actually let's you set up different profiles according to your phone usage (Headphones ecc...)", 0,
+	"Smart Connect", "Smart Connect actually let's you set up different profiles according to your phone usage (Headphones ecc...)", 1,
 	"Xperia Recorder", "It let you make sound recordings", 0,
 	"Xperia Converter", "It let you make any kind of values conversions like value,height ecc...", 0,
-        "Sony's Backup and Restore", "It let you backup your calendar events,bookmarks ecc...",0
+  "Sony's Backup and Restore", "It let you backup your calendar events,bookmarks ecc...",0,
+  "Smart Key", "It's an addon for Smart Connect and it consist to create various profile for you Headset or Headphones",1
+
 
 );
 
