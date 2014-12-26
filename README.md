@@ -9,7 +9,7 @@ S+ Reborn is provided with no warranty so you're installing this ROM to your ris
 
 **Development status for ariesve**
 
-- Include CM 12 ROM base to working on it
+- Include CM 12 ROM base to work on it
 
 **Development status for XPERIA APPS branch**
 
@@ -19,10 +19,4 @@ S+ Reborn is provided with no warranty so you're installing this ROM to your ris
 
 **Development status for Reborn Addons branch**
 
-- Update Lifelog
-- Update Smart Connect
-- Add Performance featured Reborn Tweaks 
-- Add the possibility to remove to Remove the Reborn Tweaks for the both cases
-- Add disclaimer section and Notes one (Read it please!)   Done!
-- Add Installer banner at the begging of the Aroma Installer start boot  Done!
-- Add compatibility for galaxysmtd  Done!
+Reborn Addons V3.30 Released!
