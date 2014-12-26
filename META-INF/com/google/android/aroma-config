@@ -28,10 +28,10 @@
 # Initializing Rom Information
 #
 ini_set("rom_name",             "Reborn Addons");
-ini_set("rom_version",          "3.2");
+ini_set("rom_version",          "3.3");
 ini_set("rom_author",           "nilac8991");
 ini_set("rom_device",           "All S+ Reborn supported devices");
-ini_set("rom_date",             "Dec, 24 2014");
+ini_set("rom_date",             "Dec, 26 2014");
 
 ##
 # Show static splash
@@ -137,7 +137,7 @@ checkbox(
 	"Smart Connect", "Smart Connect actually let's you set up different profiles according to your phone usage (Headphones ecc...)", 1,
 	"Xperia Recorder", "It let you make sound recordings", 0,
 	"Xperia Converter", "It let you make any kind of values conversions like value,height ecc...", 0,
-  "Sony's Backup and Restore", "It let you backup your calendar events,bookmarks ecc...",0,
+  "Sony's Backup and Restore", "It let you backup your calendar events,bookmarks ecc...",0, 
   "Smart Key", "It's an addon for Smart Connect and it consist to create various profile for you Headset or Headphones",1
 
 

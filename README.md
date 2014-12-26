@@ -39,3 +39,7 @@ Reborn Addons ChangeLOG
 - Added the possibillity to remove previously Reborn Tweaks intallation
 - Added Reborn Addons banner
 - Updated ROM verification for all the devices
+
+##Version 3.30##
+
+- Updated ROM verification for galaxysmtd && vibrantmtd

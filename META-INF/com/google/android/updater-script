@@ -13,8 +13,8 @@ assert(getprop("ro.product.name") == "sreborn_galaxysmtd" || getprop("ro.product
     || getprop("ro.product.name") == "sreborn_ariesve" || getprop("ro.product.device") == "ariesve" 
     || abort("This package is only for \"S+ Reborn users!!\"; this is a \"" + getprop("ro.build.display.id") + "\ROM\"."););
 
-mount("ext4", "EMMC", "/dev/block/mmcblk0p15", "/system");
-mount("ext4", "EMMC", "/dev/block/mmcblk0p17", "/data");
+run_program("/sbin/busybox", "mount", "/system");
+run_program("/sbin/busybox", "mount", "/data");
 
 set_progress(0.1);
 
