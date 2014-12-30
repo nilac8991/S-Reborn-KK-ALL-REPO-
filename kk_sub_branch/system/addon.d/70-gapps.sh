@@ -8,7 +8,6 @@ list_files() {
 cat <<EOF
 app/GoogleCalendarSyncAdapter.apk
 app/GoogleContactsSyncAdapter.apk
-etc/g.prop
 etc/permissions/com.google.android.ble.xml
 etc/permissions/com.google.android.camera2.xml
 etc/permissions/com.google.android.maps.xml
@@ -30,6 +29,7 @@ lib/libgmscore.so
 lib/libgms-ocrclient.so
 lib/libjgcastservice.so
 lib/libjni_latinime.so
+lib/libsslwrapper_jni.so
 lib/libWhisper.so
 priv-app/GoogleBackupTransport.apk
 priv-app/GoogleFeedback.apk
@@ -80,7 +80,6 @@ case "$1" in
    rm -f /system/app/Galaxy4.apk
    rm -f /system/app/HoloSpiralWallpaper.apk
    rm -f /system/app/LiveWallpapers.apk
-   rm -f /system/app/LiveWallpapersPicker.apk
    rm -f /system/app/MagicSmokeWallpapers.apk
    rm -f /system/app/NoiseField.apk
    rm -f /system/app/PhaseBeam.apk
