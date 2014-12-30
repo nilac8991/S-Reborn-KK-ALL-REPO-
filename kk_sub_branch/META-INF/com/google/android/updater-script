@@ -40,7 +40,7 @@ show_progress(0.500000, 0);
 ui_print(" ");
 ui_print("Mounting system ...");
 ui_print(" ");
-mount("ext4", "EMMC", "/dev/block/mmcblk0p15", "/system");
+mount("ext4", "EMMC", "/dev/block/mmcblk0p17", "/system");
 
 ui_print(" ");
 ui_print("Installing ROM Base ...");
@@ -48,7 +48,7 @@ ui_print(" ");
 package_extract_dir("recovery", "/system");
 package_extract_dir("system", "/system");
 
-ymlink("../bin/fsck.f2fs", "/system/bin/dump.f2fs");
+symlink("../bin/fsck.f2fs", "/system/bin/dump.f2fs");
 symlink("../xbin/su", "/system/bin/su");
 symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
 symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
@@ -218,17 +218,17 @@ set_metadata("/system/xbin/procmem", "uid", 0, "gid", 0, "mode", 06755, "capabil
 set_metadata("/system/xbin/procrank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
 show_progress(0.200000, 0);
-delete("/system/bin/otasigcheck.sh");
 show_progress(0.200000, 10);
 package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
 set_metadata("/tmp/backuptool.sh", "uid", 0, "gid", 0, "mode", 0755);
 set_metadata("/tmp/backuptool.functions", "uid", 0, "gid", 0, "mode", 0644);
-package_extract_file("boot.img", "/dev/block/mmcblk0p8");
-show_progress(0.100000, 0);
 run_program("/tmp/backuptool.sh", "restore");
 delete("/system/bin/backuptool.sh");
 delete("/system/bin/backuptool.functions");
+show_progress(0.200000, 10);
+package_extract_file("boot.img", "/dev/block/mmcblk0p8");
+show_progress(0.100000, 0);
 
 ui_print(" ");
 ui_print("Flashing Xperia APPS...");
@@ -251,7 +251,7 @@ unmount("/data");
 ui_print(" ");
 ui_print(" ");
 ui_print("**************************************************");
-ui_print("            Enjoy S+ Reborn Release 13            ");
+ui_print("            Enjoy S+ Reborn Release 12            ");
 ui_print("         To have a full Xperia Experience         ");
 ui_print("         Download also the Reborn Addons!!        ");   
 ui_print("        Comment And Rate it on XDA Thread!!       ");
