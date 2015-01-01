@@ -10,6 +10,23 @@ Visit the official thread on XDA http://forum.xda-developers.com/showthread.php?
         Based on Android 4.4        
 **************************************
 
+Release 13
+
+ **System**
+
+- Merged latest changes from Release 15 (ADC Team)
+- Updated K^ Kernel 
+- Updated GApps
+- New Clear Audio configuration 
+- Overall ROM performance increased thanks to Christopher93
+
+ **XPERIA APPS**
+
+- Updated Walkman 
+- Sound enhancements fully fixed with all functions working 
+- Clear Audio is available again in Walkman settings
+- New updated Xperia Calendar to Z3 version 
+
 Release 12
 
  **System**

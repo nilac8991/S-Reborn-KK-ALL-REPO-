@@ -259,18 +259,21 @@ Reborn Tweaks V6
 - Removed Xperia Z3 Wallpapers (You can find it in the Reborn Addons)
 - NEW Xperia Keyboard (Z3 Version)
 
- **Reborn Addons**
+##Release 13##
 
- Reborn Addons V2
+ **System**
 
-- New Added Sony's Movie Creator
-- New Added Sony's Backup and Restore app 
-- Added Xperia Wallpapers in the personalization section
-- Created section for the Reborn Tweaks
-- Added Battery featured Tweaks (Coming soon also the Performance ones...)
-- Added a little description for each app
-- Two different types of Reborn Tweaks (Performance and Battery saving)
-- Some other minor changes made in the aroma installer 
-- Added Signature and ROM verification 
+- Merged latest changes from Release 15 (ADC Team)
+- Updated K^ Kernel 
+- Updated GApps
+- New Clear Audio configuration 
+- Overall ROM performance increased thanks to Christopher93
 
+ **XPERIA APPS**
+
+- Updated Walkman 
+- Sound enhancements fully fixed with all functions working 
+- Clear Audio is available again in Walkman settings
+- New updated Xperia Calendar to Z3 version 
+- Fixed the problem with the Weather widget in Xperia Home
 
