@@ -122,6 +122,20 @@ textbox(
     resread("changelog.txt")
 );
 
+pleasewait("Checking UP ROM...");
+
+if sysprop("ro.product.name") == "ariesve" || sysprop("ro.product.name") == "SGH-T959" || sysprop("ro.product.name") == "GT-I9000"
+then 
+viewbox(
+    "Installation was successful!",
+    "<b>Sorry but these addons are only for the S+ Reborn Addons!</b>\n\n"+
+    "<b>Check back on the XDA Thread and install the ROM first</b>\n\n"+
+    "<#selectbg_g><b>Enjoy your Reborn Addons!</b></#>\n\n",
+    "@welcome"
+);
+
+
+
 ###################################################################################################################
 #
 # STEP 5 - Utility Xperia Apps
