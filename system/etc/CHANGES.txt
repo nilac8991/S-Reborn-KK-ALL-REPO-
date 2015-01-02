@@ -1,66 +1,152 @@
 ===================================
-Since Tue Dec 16 07:22:23 UTC 2014
+Since Wed Dec 24 10:17:13 UTC 2014
 ===================================
+
+   * vendor/cm
+b28ca70 apn: fix some data issues when using sprint operator numerics.
+
+===================================
+Since Tue Dec 23 07:00:58 UTC 2014
+===================================
+
+   * android
+c61c4e4 Use SVOX repository at AOSP due to DMCA takedown
 
    * frameworks/base
-682198e Only discard the roaming icon if we're not roaming anymore.
-0caceaa core: Fix typos in AOSP EN resources
-
-   * libcore
-55fd0f9 MimeUtils: add ODF presentation (template)
-
-   * packages/apps/Mms
-222c5b8 Mms: Improve some more strings
+84704e5 Keyguard: Fix lockscreen selection view in landscape mode
 
 ===================================
-Since Sat Dec 13 10:48:34 UTC 2014
+Since Sat Dec 20 09:51:42 UTC 2014
 ===================================
 
-   * frameworks/opt/telephony
-9e20514 Store correct IMSI when retreived from SIMRecords and use it for RuimRecords
+   * packages/apps/Settings
+c48caec Settings: fix FC viewing 'running' detail
+
+===================================
+Since Fri Dec 19 12:49:02 UTC 2014
+===================================
+
+   * external/koush/Superuser
+da400d5 Automatic translation import
+
+   * external/whispersystems/WhisperPush
+5ecffb1 Automatic translation import
+
+   * frameworks/base
+054b29b Automatic translation import
+
+   * packages/apps/Apollo
+3582e97 Automatic translation import
+
+   * packages/apps/Bluetooth
+daa41d7 Automatic translation import
+
+   * packages/apps/BluetoothExt
+2cc4a8e Automatic translation import
+
+   * packages/apps/Browser
+d1b4127 Automatic translation import
+
+   * packages/apps/CMAccount
+80762ba Automatic translation import
+
+   * packages/apps/CMBugReport
+450defe Automatic translation import
+
+   * packages/apps/CMFileManager
+636a3a3 Automatic translation import
+
+   * packages/apps/CMHome
+df5b555 Automatic translation import
+
+   * packages/apps/CMUpdater
+9d4197e Automatic translation import
+
+   * packages/apps/Calculator
+eb21ddb Automatic translation import
+
+   * packages/apps/Calendar
+db2eed3 Automatic translation import
+
+   * packages/apps/Camera2
+9351ceb Automatic translation import
+
+   * packages/apps/CellBroadcastReceiver
+ad08c2b Automatic translation import
+
+   * packages/apps/Contacts
+45d34c8 Automatic translation import
+
+   * packages/apps/ContactsCommon
+cb1ff7c Automatic translation import
+
+   * packages/apps/DSPManager
+b900a87 Automatic translation import
+
+   * packages/apps/DeskClock
+7fb4095 Automatic translation import
 
    * packages/apps/Dialer
-22ea110 Landscape: Dialpad is too big and it cover partially contacts.
+61b8f70 Automatic translation import
 
-   * vendor/cm
-e8bb4f8 Prioritize Airtel GPRS over Airtel Live in India.
+   * packages/apps/Email
+62e3cb9 Automatic translation import
 
-===================================
-Since Fri Dec 12 07:23:02 UTC 2014
-===================================
+   * packages/apps/Gallery2
+fd4abb0 Automatic translation import
 
-   * packages/apps/Mms
-c53fd83 Mms: Improve some strings
-cda5004 Mms: Remove SMS signature summary
+   * packages/apps/InCallUI
+71867d6 Automatic translation import
 
-   * packages/apps/Settings
-4e75688 Settings: disable report button for system apps
-
-===================================
-Since Tue Dec  9 07:17:01 UTC 2014
-===================================
+   * packages/apps/LockClock
+3a882e2 Automatic translation import
 
    * packages/apps/Mms
-991d700 Reuse @style/MmsHoloTheme in sub-activities
-9b0fbf1 More support for inverted CM11 themes
+7c7a9d5 Automatic translation import
 
-   * packages/providers/TelephonyProvider
-46b2e9c Change BlacklistProvider logging to isLoggable instead of DEBUG constant
-
-   * vendor/cm
-12e4e18 Add Bulsatcom APN
-5f37ad9 Update Reliance RTel APN's.
-
-===================================
-Since Sat Dec  6 17:30:28 UTC 2014
-===================================
-
-   * frameworks/base
-7c1aec2 Themes: Fix memory corruption from closing asset before XMLTree
-
-   * frameworks/opt/telephony
-9e7b80a Telephony: Always allow ignored sms packages for premium sms.
+   * packages/apps/SamsungServiceMode
+7c5ba77 Automatic translation import
 
    * packages/apps/Settings
-13d2657 Settings: fix profile triggers not showing up for RTL languages
+40f8ef9 Automatic translation import
+
+   * packages/apps/SoundRecorder
+48a9df3 Automatic translation import
+
+   * packages/apps/ThemeChooser
+39de354 Automatic translation import
+
+   * packages/apps/Torch
+a472a6e Automatic translation import
+
+   * packages/apps/Trebuchet
+3088232 Automatic translation import
+
+   * packages/apps/VoicePlus
+d3bfcf6 Automatic translation import
+
+   * packages/inputmethods/LatinIME
+d56e743 Automatic translation import
+
+   * packages/providers/DownloadProvider
+a712ccb Automatic translation import
+
+   * packages/services/Telephony
+1ef2c45 Automatic translation import
+
+   * packages/wallpapers/PhaseBeam
+380df21 Automatic translation import
+
+   * packages/wallpapers/PhotoPhase
+205bb7f Automatic translation import
+
+===================================
+Since Thu Dec 18 09:23:57 UTC 2014
+===================================
+
+   * external/whispersystems/TextSecure
+719bce2 TextSecure: Leverage libphonenumber's isValidNumber.
+
+   * packages/apps/Settings
+47e8e46 Protected Apps: Increase hit target of the launch app button
 
