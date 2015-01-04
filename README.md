@@ -5,18 +5,16 @@ S+ Reborn is provided with no warranty so you're installing this ROM to your ris
 
 **Development status for galaxysmtd branch**
 
-- To merge the fixes for the GApps installation problem from recovery
+- Fix sound problem in Walkman (New Clear Audio configuration needed and Tester!)
 
 **Development status for ariesve**
 
-- Include CM 12 ROM base to work on it
+- Start working on xosp-repository2 and create the ariesve_lol branch
 
 **Development status for XPERIA APPS branch**
 
-- Solve the problem with the Weather widget 
-- Solve the sound enhancement app problem to be working on Walkman
-- Some others updates for each Xperia App 
+- Nothing for now 
 
 **Development status for Reborn Addons branch**
 
-Reborn Addons V3.30 Released!
+- Add the ROM verification before the installation process
