@@ -39,3 +39,10 @@ Version 3.20
 Version 3.30
 
 - Updated ROM verification for galaxysmtd && vibrantmtd
+
+Version 3.50
+
+- Updated Reborn featured Nitrox Tweaks
+- Added support for the ancora device (ROM will be published in two weeks)
+- Deleted many strings in aroma-config
+- Some other minor improvements made in Aroma Installer

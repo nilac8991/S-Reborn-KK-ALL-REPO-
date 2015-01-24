@@ -28,10 +28,10 @@
 # Initializing Rom Information
 #
 ini_set("rom_name",             "Reborn Addons");
-ini_set("rom_version",          "3.3");
+ini_set("rom_version",          "3.5");
 ini_set("rom_author",           "nilac8991");
 ini_set("rom_device",           "All S+ Reborn supported devices");
-ini_set("rom_date",             "Dec, 26 2014");
+ini_set("rom_date",             "Jan, 25 2014");
 
 ##
 # Show static splash
@@ -218,9 +218,8 @@ selectbox(
                               #Tweaks designed to get from the device the most of performance
 
 
-  "Reborn Tweaks Performance featured", "Coming Soon.....",0,
-  "Reborn Tweaks Battery featured", "Tweaks designed to provide a excelent management of the battery consumption",1,
-  "Reborn Tweaks Uninstall", "It's a script that permites you to remove the Installed Tweaks",0,
+  "Reborn Tweaks", "Tweaks designed to provide a excelent balance between performance and battery consumption",1,
+  "Reborn Tweaks Uninstall", "It's a script that allows you to remove the Installed Tweaks",0,
   "Balanced", "leave the ROM as it is in this moment",0
 
 );
