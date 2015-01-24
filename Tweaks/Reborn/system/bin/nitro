@@ -1,0 +1,192 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X_SPARK EDITION V-II ORIGINAL™ 
+# Copyright (C) 2014 K1ks
+# NITRO X
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+busybox clear
+busybox echo ""
+busybox echo -e "\e[01;32m     SPARK...\e[00;37m"
+busybox echo -e "\e[31m   //----------------------------------------//"
+busybox echo -n "  "
+busybox echo -e "\e[00;41m//               NITRO X ENTROPY         //\e[00;37;40m"
+busybox echo -e "\e[31m //----------------------------------------//\e[00;37;40m"
+busybox echo -e "\e[01;32m                        FEEL THE POWER 
+\e[00;37;40m"
+busybox sleep 3
+busybox echo ""
+busybox echo ">>> 1...Default..."
+busybox echo ""
+busybox echo ">>> 2...Light..."
+busybox echo ""
+busybox echo ">>> 3...Moderate..."
+busybox echo ""
+busybox echo ">>> 4...Agressive..."
+busybox echo ""
+busybox echo ">>> 5...Enlarger..."
+busybox echo ""
+busybox echo -n ">>>...Make your choice..?"                
+read character
+case $character in
+1) busybox sleep 1
+if [ -e /system/etc/init.d/X00DEFAULT ]; then
+busybox echo ""
+busybox echo ">>>...Nitro X Default Is Already Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Startup Nitro X Default......"
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox rm -f /system/etc/init.d/X00AGRESSIVE
+busybox rm -f /system/etc/init.d/X00LIGHT
+busybox rm -f /system/etc/init.d/X00ENLARGER
+busybox rm -f /system/etc/init.d/X00MODERATE
+busybox rm -f /system/etc/init.d/X00DEFAULT
+busybox rm -f /data/ModBoost/X00AGRESSIVE.log
+busybox rm -f /data/ModBoost/X00DEFAULT.log
+busybox rm -f /data/ModBoost/X00LIGHT.log
+busybox rm -f /data/ModBoost/X00MODERATE.log
+busybox cp -f /system/etc/Nitro/X00DEFAULT /system/etc/init.d
+busybox chmod 777 /system/etc/init.d/X00DEFAULT
+busybox chown 0.0 /system/etc/init.d/X00DEFAULT
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+2) busybox sleep 1
+if [ -e /system/etc/init.d/X00LIGHT ]; then
+busybox echo ""
+busybox echo ">>>...Nitro X Light Is Already Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Startup Nitro X Light......"
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox rm -f /system/etc/init.d/X00AGRESSIVE
+busybox rm -f /system/etc/init.d/X00LIGHT
+busybox rm -f /system/etc/init.d/X00MODERATE
+busybox rm -f /system/etc/init.d/X00ENLARGER
+busybox rm -f /system/etc/init.d/X00DEFAULT
+busybox rm -f /data/ModBoost/X00AGRESSIVE.log
+busybox rm -f /data/ModBoost/X00DEFAULT.log
+busybox rm -f /data/ModBoost/X00LIGHT.log
+busybox rm -f /data/ModBoost/X00MODERATE.log
+busybox cp -f /system/etc/Nitro/X00LIGHT /system/etc/init.d
+busybox chmod 777 /system/etc/init.d/X00LIGHT
+busybox chown 0.0 /system/etc/init.d/X00LIGHT
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+3) busybox sleep 1
+if [ -e /system/etc/init.d/X00MODERATE ]; then
+busybox echo ""
+busybox echo ">>>...Nitro X Moderate Is Already Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Startup Nitro X Moderate......"
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox rm -f /system/etc/init.d/X00AGRESSIVE
+busybox rm -f /system/etc/init.d/X00LIGHT
+busybox rm -f /system/etc/init.d/X00ENLARGER
+busybox rm -f /system/etc/init.d/X00MODERATE
+busybox rm -f /system/etc/init.d/X00DEFAULT
+busybox rm -f /data/ModBoost/X00AGRESSIVE.log
+busybox rm -f /data/ModBoost/X00DEFAULT.log
+busybox rm -f /data/ModBoost/X00LIGHT.log
+busybox rm -f /data/ModBoost/X00MODERATE.log
+busybox cp -f /system/etc/Nitro/X00MODERATE /system/etc/init.d
+busybox chmod 777 /system/etc/init.d/X00MODERATE
+busybox chown 0.0 /system/etc/init.d/X00MODERATE
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+4) busybox sleep 1
+if [ -e /system/etc/init.d/X00AGRESSIVE ]; then
+busybox echo ""
+busybox echo ">>>...Nitro X Agressive Is Already Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Startup Nitro X Agressive......"
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox rm -f /system/etc/init.d/X00AGRESSIVE
+busybox rm -f /system/etc/init.d/X00LIGHT
+busybox rm -f /system/etc/init.d/X00ENLARGER
+busybox rm -f /system/etc/init.d/X00MODERATE
+busybox rm -f /system/etc/init.d/X00DEFAULT
+busybox rm -f /data/ModBoost/X00AGRESSIVE.log
+busybox rm -f /data/ModBoost/X00DEFAULT.log
+busybox rm -f /data/ModBoost/X00LIGHT.log
+busybox rm -f /data/ModBoost/X00MODERATE.log
+busybox cp -f /system/etc/Nitro/X00AGRESSIVE /system/etc/init.d
+busybox chmod 777 /system/etc/init.d/X00AGRESSIVE
+busybox chown 0.0 /system/etc/init.d/X00AGRESSIVE
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+5) busybox sleep 1
+if [ -e /system/etc/init.d/X00ENLARGER ]; then
+busybox echo ""
+busybox echo ">>>...Nitro X Enlarger Is Already Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Startup Nitro X Enlarger......"
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox rm -f /system/etc/init.d/X00AGRESSIVE
+busybox rm -f /system/etc/init.d/X00LIGHT
+busybox rm -f /system/etc/init.d/X00MODERATE
+busybox rm -f /system/etc/init.d/X00DEFAULT
+busybox rm -f /data/ModBoost/X00AGRESSIVE.log
+busybox rm -f /data/ModBoost/X00DEFAULT.log
+busybox rm -f /data/ModBoost/X00LIGHT.log
+busybox rm -f /data/ModBoost/X00MODERATE.log
+busybox cp -f /system/etc/Nitro/X00ENLARGER /system/etc/init.d
+busybox chmod 777 /system/etc/init.d/X00ENLARGER
+busybox chown 0.0 /system/etc/init.d/X00ENLARGER
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+esac
+busybox sleep 3
+

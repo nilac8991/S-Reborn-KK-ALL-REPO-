@@ -1,0 +1,84 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X_SPARK EDITION V-II ORIGINAL™ 
+# Copyright (C) 2014 K1ks
+# X00MISC
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+PATH=$PATH:/system/xbin:/sbin:/vendor/bin:/system/sbin:/system/bin
+if [ -d "/data/local/busybox*/xbin" ]; then PATH=$PATH:`ls -d /data/local/busybox*/xbin 2>/dev/null`; fi
+
+PMB=/data/ModBoost/X00MISC.log
+
+if [ -e $PMB ]; then
+busybox	rm $PMB;
+fi
+
+busybox touch $PMB;
+busybox echo "# NITRO X_SPARK EDITION" | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+busybox echo "# STARTING UP OF NITRO X : $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+
+# Progress Setprop Nitro X =========================================#
+
+setprop ENFORCE_PROCESS_LIMIT false
+setprop CONTENT_APP_IDLE_OFFSE
+setprop persist.sys.NV_FPSLIMIT 60
+setprop persist.sys.NV_POWERMODE 1
+setprop persist.sys.NV_PROFVER 15
+setprop persist.sys.NV_STEREOCTRL 0
+setprop persist.sys.NV_STEREOSEPCHG 0
+setprop persist.sys.NV_STEREOSEP 20
+setprop dalvik.vm.verify-bytecode false
+setprop hw3d.force 1
+setprop hw2d.force 1
+setprop debug.performance.tuning 1
+setprop debug.gr.numframebuffers 3
+setprop debug.sf.hw 1
+setprop video.accelerate.hw 1
+setprop persist.sys.use_16bpp_alpha 1
+setprop touch.pressure.scale 0.001
+
+busybox echo "...Optimization Progress Setprop Nitro X = Activated..." | tee -a $PMB;
+
+
+# Fentropy enForcer =========================================#
+
+if [ -e "/dev/frandom" ]; then
+busybox chmod 666 /dev/frandom;
+for dom in /dev/*random; do
+if [ "$dom" != "/dev/frandom" ] && [ ! "`ls $dom.*`" ]; then
+mv $dom $dom.unsuper;
+busybox chmod 666 $dom;
+fi 2>/dev/null;
+done;
+busybox echo "...Optimization Fentropy enForcer = Activated..." | tee -a $PMB;
+fi;
+
+# Touchscreen =========================================#
+
+if [ -e /sys/class/touch/switch/set_touchscreen ];
+then
+busybox echo 7035 > /sys/class/touch/switch/set_touchscreen;
+busybox echo 8002 > /sys/class/touch/switch/set_touchscreen;
+busybox echo 11000 > /sys/class/touch/switch/set_touchscreen;
+busybox echo 13060 > /sys/class/touch/switch/set_touchscreen;
+busybox echo 14005 > /sys/class/touch/switch/set_touchscreen;
+busybox echo "...Optimization Touchscreen Sensitivity = Activated..." | tee -a $PMB; else
+busybox echo "...Optimization Touchscreen Sensitivity = Not Activated , Kernel don't support..." | tee -a $PMB;
+fi;
+
+busybox echo "" | tee -a $PMB;
+busybox echo "...Optimization Miscellaneous = Activated..." | tee -a $PMB
+busybox echo "" | tee -a $PMB;
+busybox echo "# END OF THE NITRO X : $( date +"%m-%d-%Y %H:%M:%S" ) " | tee -a $PMB

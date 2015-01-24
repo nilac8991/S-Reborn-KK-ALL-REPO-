@@ -1,0 +1,101 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X_SPARK EDITION V-II ORIGINAL™ 
+# Copyright (C) 2014 K1ks
+# CHECKING MOD 
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+busybox clear
+busybox echo
+busybox echo -e "\e[01;32m     SPARK...\e[00;37m"
+busybox echo -e "\e[31m   //----------------------------------------//"
+busybox echo -n "  "
+busybox echo -e "\e[00;41m//       CHECKING MOD                    //\e[00;37;40m"
+busybox echo -e "\e[31m //----------------------------------------//\e[00;37;40m"
+busybox echo -e "\e[01;32m                        FEEL THE POWER
+\e[00;37;40m"
+busybox sleep 1
+busybox echo ""
+busybox echo ">>>...Sequential StartUp Of The Checking Process...<<<"
+busybox sleep 3
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...NITRO DIRECTORY...<<<"
+
+busybox echo ">>>...Checking for X00NITRO..."
+busybox sleep 1
+if [ -e /system/etc/Nitro/X00NITRO ]; then
+busybox echo "...X00NITRO = OK..."
+busybox sleep 1
+else
+busybox echo "...NOT OK = ERROR..."
+busybox sleep 1
+fi;
+   
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...BIN / XBIN...<<<"
+
+busybox echo ">>>...Checking for BUSYBOX..."
+busybox sleep 1
+if [ -e /system/xbin/busybox ]; then
+busybox echo "...BUSYBOX = OK..."
+busybox sleep 1
+else
+busybox echo "...NOT OK = ERROR..."
+busybox sleep 1
+fi;
+   
+busybox echo ">>>...Checking for BOOST..."
+busybox sleep 1
+if [ -e /system/xbin/boost ]; then
+busybox echo "...BOOST = OK..."
+busybox sleep 1
+else
+busybox echo "...NOT OK = ERROR..."
+busybox sleep 1
+fi;
+   
+busybox echo ">>>...Checking for MASTER..."
+busybox sleep 1
+if [ -e /system/bin/mode ]; then
+busybox echo "...MASTER = OK..."
+busybox sleep 1
+else
+busybox echo "...NOT OK = ERROR..."
+busybox sleep 1
+fi;
+
+busybox echo ">>>...Checking for NITRO_ENTROPY..."
+busybox sleep 1
+if [ -e /system/bin/nitro ]; then
+busybox echo "...NITRO_ENTROPY = OK..."
+busybox sleep 1
+else
+busybox echo "...NOT OK = ERROR..."
+busybox sleep 1
+fi;
+
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...If Error, Please Flash The Mod Again...<<<"
+busybox echo ">>>...If The Problem Persists , Contact Dev On Thread...<<<"   
+busybox echo ">>>...Otherwise , Well Done...<<<"   
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...CHECKING ENGINE NITRO X : COMPLETED...<<<"
+busybox sleep 5
+exit 0

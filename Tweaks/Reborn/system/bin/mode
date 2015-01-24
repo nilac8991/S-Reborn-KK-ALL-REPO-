@@ -1,0 +1,213 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X_SPARK EDITION V-II ORIGINAL™ 
+# Copyright (C) 2014 K1ks
+# MASTER
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+busybox clear
+busybox echo ""
+busybox echo -e "\e[01;32m     SPARK...\e[00;37m"
+busybox echo -e "\e[31m   //----------------------------------------//"
+busybox echo -n "  "
+busybox echo -e "\e[00;41m//          MASTER                       //\e[00;37;40m"
+busybox echo -e "\e[31m //----------------------------------------//\e[00;37;40m"
+busybox echo -e "\e[01;32m                        FEEL THE POWER 
+\e[00;37;40m"
+busybox sleep 3
+busybox echo ""
+busybox echo ">>> 1...Nitro Core On..."
+busybox echo ""
+busybox echo ">>> 2...Nitro Core Off..."
+busybox echo ""
+busybox echo ">>> 3...Renice System On..."
+busybox echo ""
+busybox echo ">>> 4...Renice System Off..."
+busybox echo ""
+busybox echo ">>> 5...NetBoost On..."
+busybox echo ""
+busybox echo ">>> 6...NetBoost Off..."
+busybox echo ""
+busybox echo ">>> 7...Misc On..."
+busybox echo ""
+busybox echo ">>> 8...Misc Off..."
+busybox echo ""
+busybox echo -n ">>>...Make your choice..?"                
+read character
+case $character in
+1) busybox sleep 1
+if [ -e /system/etc/init.d/X00NITRO ]; then
+busybox echo ""
+busybox echo ">>>...Nitro Core Is Already Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Startup Nitro Core......"
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox cp -f /system/etc/Nitro/X00NITRO /system/etc/init.d
+busybox chmod 777 /system/etc/init.d/X00NITRO
+busybox chown 0.0 /system/etc/init.d/X00NITRO
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+2) busybox sleep 1
+if [ ! -e /system/etc/init.d/X00NITRO ]; then
+busybox echo ""
+busybox echo ">>>...Nitro Core Is Not Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Stop Over Nitro Core..."
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox rm -f /system/etc/init.d/X00NITRO
+busybox rm -f /data/ModBoost/X00NITROLOG.log
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+3) busybox sleep 1
+if [ -e /system/etc/init.d/X00RENICE ]; then
+busybox echo ""
+busybox echo ">>>...Renice System Is Already Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Startup Renice System......"
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox cp -f /system/etc/Nitro/X00RENICE /system/etc/init.d
+busybox chmod 777 /system/etc/init.d/X00RENICE
+busybox chown 0.0 /system/etc/init.d/X00RENICE
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+4) busybox sleep 1
+if [ ! -e /system/etc/init.d/X00RENICE ]; then
+busybox echo ""
+busybox echo ">>>...Renice System Is Not Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Stop Over Nitro Core..."
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox rm -f /system/etc/init.d/X00RENICE
+busybox rm -f /data/ModBoost/X00RENICE.log
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+5) busybox sleep 1
+if [ -e /system/etc/init.d/X00NET ]; then
+busybox echo ""
+busybox echo ">>>...Boost Net Is Already Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Startup NetBoost......"
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox cp -f /system/etc/Nitro/X00NET /system/etc/init.d
+busybox chmod 777 /system/etc/init.d/X00NET
+busybox chown 0.0 /system/etc/init.d/X00NET
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+6) busybox sleep 1
+if [ ! -e /system/etc/init.d/X00NET ]; then
+busybox echo ""
+busybox echo ">>>...NetBoost Is Not Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Stop Over NetBoost..."
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox rm -f /system/etc/init.d/X00NET
+busybox rm -f /data/ModBoost/X00NET.log
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+7) busybox sleep 1
+if [ -e /system/etc/init.d/X00MISC ]; then
+busybox echo ""
+busybox echo ">>>...Misc Tweaks Is Already Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Startup Misc Tweaks......"
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox cp -f /system/etc/Nitro/X00MISC /system/etc/init.d
+busybox chmod 777 /system/etc/init.d/X00MISC
+busybox chown 0.0 /system/etc/init.d/X00MISC
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+8) busybox sleep 1
+if [ ! -e /system/etc/init.d/X00MISC ]; then
+busybox echo ""
+busybox echo ">>>...Misc Tweaks Is Not Started..."
+else
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>......Sequential Stop Over Misc Tweaks..."
+busybox sleep 3
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox rm -f /system/etc/init.d/X00MISC
+busybox rm -f /data/ModBoost/X00MISC.log
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...OK ! Please reboot your device ASAP..."
+busybox sleep 3
+fi;;
+esac
+busybox sleep 3
+

@@ -1,0 +1,113 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X_SPARK EDITION V-II ORIGINAL™ 
+# Copyright (C) 2014 K1ks
+# NO MOD 
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+PATH=$PATH:/system/xbin:/sbin:/vendor/bin:/system/sbin:/system/bin
+if [ -d "/data/local/busybox*/xbin" ]; then PATH=$PATH:`ls -d /data/local/busybox*/xbin 2>/dev/null`; fi
+mount -o remount,rw /system 2>/dev/null;
+busybox mount -o remount,rw /system 2>/dev/null; 
+
+busybox clear
+busybox echo ""
+busybox echo -e "\e[01;32m     SPARK...\e[00;37m"
+busybox echo -e "\e[31m   //----------------------------------------//"
+busybox echo -n "  "
+busybox echo -e "\e[00;41m//       UNINSTALLER                     //\e[00;37;40m"
+busybox echo -e "\e[31m //----------------------------------------//\e[00;37;40m"
+busybox echo -e "\e[01;32m                        FEEL THE POWER  
+\e[00;37;40m"
+busybox sleep 3
+busybox echo -n ">>>...Really Uninstall...?
+[ Yes = 1 | No = 2 ]: "
+read option
+if [ $option -ne 1 ]; then
+busybox echo ""
+busybox echo ">>>...Exiting Now..."
+busybox sleep 1
+busybox exit
+else
+busybox sleep 1
+fi;
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Mounting Partition..."
+busybox sleep 1;
+busybox mount -o rw,remount /data
+busybox mount -o rw,remount /system
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Sequential StartUp Of The Uninstall Process..."
+
+busybox sleep 3
+
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Init.D..."
+busybox rm -rf /system/etc/init.d;   
+
+if [ -e /system/etc/init.d.bak ]; then
+busybox	mv /system/etc/init.d.bak /system/etc/init.d;
+busybox	chmod 755 /system/etc/init.d;
+busybox	chmod 755 /system/etc/init.d/*;
+busybox	chown 0.0 /system/etc/init.d;
+busybox	chown 0.0 /system/etc/init.d/*;
+fi;
+
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...File System..."
+
+busybox sleep 5
+
+busybox rm -f /system/bin/menu
+busybox rm -f /system/bin/scan
+busybox rm -f /system/bin/mode
+busybox rm -f /system/bin/nitro
+busybox rm -f /system/xbin/boost
+busybox rm -rf /system/etc/Nitro
+busybox rm -rf /data/ModBoost
+
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...Wipe Resource / Caches..."
+busybox sleep 2
+if [ -d /data/dalvik-cache ]; then
+busybox rm -f /data/dalvik-cache/*
+fi;
+if [ -d /data/resource-cache ]; then
+busybox rm -f /data/resource-cache/*
+fi;
+
+busybox echo ""
+busybox echo ">>>-----------------------<<<"
+busybox echo ""
+busybox echo ">>>...NITRO X SPARK 2 Has Been Removed..."
+busybox echo ""
+busybox echo ">>>...Everything Is Restored..."
+busybox sleep 2
+busybox echo ""
+busybox echo ">>>...Your Device Will Reboot..."
+busybox sleep 5
+
+busybox rm /data/*.log
+busybox rm /system/bin/no_mod
+
+reboot
+busybox reboot

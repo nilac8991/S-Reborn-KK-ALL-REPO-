@@ -1,0 +1,203 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X_SPARK EDITION V-II ORIGINAL™ 
+# Copyright (C) 2014 K1ks
+# MANAGER NITRO X 
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+busybox clear
+busybox echo ""
+busybox echo ">>>...WELCOME TO THE PROJECT MOD BOOST...<<<"
+busybox echo ">>>...NITRO X_SPARK 2 EDITION...<<<"
+busybox echo ""
+busybox echo ">>>...CHECK ROOT SYSTEM...<<<"
+busybox sleep 1
+id=$(id); id=${id#*=}; id=${id%%[\( ]*}
+if [ "$id" = "0" ] || [ "$id" = "root" ]; then
+busybox echo ""
+busybox echo ">>>...GREAT ! ROOT FOR YOU...<<<"
+else
+busybox echo ""
+busybox echo ">>>...NOP ! NO ROOT FOR YOU...<<<"
+busybox echo ""
+busybox echo ">>>...TYPE 'SU' BEFORE...<<<"
+fi
+busybox echo ""
+busybox sleep 2
+busybox clear
+busybox echo 
+busybox echo -e "\e[01;32m     SPARK...\e[00;37m"
+busybox echo -e "\e[31m   //----------------------------------------//"
+busybox echo -n "  "
+busybox echo -e "\e[00;41m//        MANAGER NITRO X SPARK 2        //\e[00;37;40m"
+busybox echo -e "\e[31m //----------------------------------------//\e[00;37;40m"
+busybox echo -e "\e[01;32m                        FEEL THE POWER
+\e[00;37;40m"
+busybox sleep 1
+busybox echo ""
+busybox echo ">>> 1 - Check..."
+busybox echo ""
+busybox echo ">>> 2 - XBooster..."
+busybox echo ""
+busybox echo ">>> 3 - Mastering Your Mod..."
+busybox echo ""
+busybox echo ">>> 4 - Nitro X Entropy..."
+busybox echo ""
+busybox echo ">>> 5 - Uninstall..."
+busybox echo ""
+busybox echo ">>> 6 - Exit..."
+busybox echo ""
+busybox echo -n ">>>...Make your choice..?"                
+read character
+case $character in 
+
+1) busybox clear
+sh system/bin/scan
+busybox echo ""
+busybox sleep 2
+busybox echo ""
+busybox echo -n ">>>...Come back to menu...?
+[ Yes = 1 | No = 2 ]: "
+read option
+if [ $option -ne 1 ]; then
+busybox echo ""
+busybox echo ">>>...Exiting Now......"
+busybox sleep 1
+exit
+else
+busybox echo ""
+sh system/bin/menu
+busybox sleep 1
+fi
+busybox clear ;;
+
+2) busybox clear;
+sh system/xbin/boost
+busybox echo ""
+busybox sleep 2
+busybox echo ""
+busybox echo -n ">>>...Come back to menu...?
+[ Yes = 1 | No = 2 ]: "
+read option
+if [ $option -ne 1 ]; then
+busybox echo ""
+busybox echo ">>>...Exiting Now..."
+busybox sleep 1
+exit
+else
+busybox echo ""
+sh system/bin/menu
+busybox sleep 1
+fi
+busybox clear ;;
+
+3) busybox clear;
+sh system/bin/mode
+busybox echo ""
+busybox sleep 2
+busybox echo ""
+busybox echo -n ">>>...Come back to menu...?
+[ Yes = 1 | No = 2 ]: "
+read option
+if [ $option -ne 1 ]; then
+busybox echo ""
+busybox echo ">>>...Exiting Now...."
+busybox sleep 1
+exit
+else
+busybox echo ""
+sh system/bin/menu
+busybox sleep 1
+fi
+busybox clear ;;
+
+4) busybox clear;
+sh system/bin/nitro
+busybox echo ""
+busybox sleep 2
+busybox echo ""
+busybox echo -n ">>>...Come back to menu...?
+[ Yes = 1 | No = 2 ]: "
+read option
+if [ $option -ne 1 ]; then
+busybox echo ""
+busybox echo ">>>...Exiting Now...."
+busybox sleep 1
+exit
+else
+busybox echo ""
+sh system/bin/menu
+busybox sleep 1
+fi
+busybox clear ;;
+
+
+5) busybox clear
+sh system/bin/no_mod
+busybox echo ""
+busybox sleep 2
+busybox echo ""
+busybox echo -n ">>>...Come back to menu...?
+[ Yes = 1 | No = 2 ]: "
+read option
+if [ $option -ne 1 ]; then
+busybox echo ""
+busybox echo ">>>...Exiting Now...."
+busybox sleep 
+exit
+else
+busybox echo ""
+sh system/bin/menu
+busybox sleep 1
+fi
+busybox clear ;;
+
+6) busybox clear
+busybox echo ">>>...Exiting Dashboard..."
+busybox echo ""
+busybox echo -n "...Come back to menu...?
+[ Yes = 1 | No = 2 ]: "
+read option
+if [ $option -ne 1 ]; then
+busybox echo ""
+busybox echo ">>>...Exiting Now..."
+busybox sleep 1
+exit
+else
+busybox echo ""
+sh system/bin/menu
+busybox sleep 1
+fi
+exit ;;
+
+*) busybox clear;
+busybox echo ">>>...Exit,Invalid Option..."
+busybox sleep 2
+
+esac
+busybox echo ""
+busybox echo -n ">>>...Come back to menu...?
+[ Yes = 1 | No = 2 ]: "
+read option
+if [ $option -ne 1 ]; then
+busybox echo ""
+busybox echo ">>>...Exiting Now..."
+busybox echo ""
+busybox echo ">>>...Bye ! Bye !..."
+busybox sleep 1
+exit
+else
+busybox echo ""
+busybox echo ""
+busybox sleep 3
+sh system/bin/menu
+fi

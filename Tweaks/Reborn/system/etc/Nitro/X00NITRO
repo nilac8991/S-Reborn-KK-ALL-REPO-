@@ -1,0 +1,176 @@
+#!/system/bin/sh
+# PROJECT MOD BOOST EDITION  
+# NITRO X_SPARK EDITION V-II ORIGINAL™ 
+# Copyright (C) 2014 K1ks
+# X00NITRO
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+PATH=$PATH:/system/xbin:/sbin:/vendor/bin:/system/sbin:/system/bin
+if [ -d "/data/local/busybox*/xbin" ]; then PATH=$PATH:`ls -d /data/local/busybox*/xbin 2>/dev/null`; fi
+
+PMB=/data/ModBoost/X00NITROLOG.log
+
+if [ -e $PMB ]; then
+busybox	rm $PMB;
+fi
+
+busybox touch $PMB;
+busybox echo "#==============================================================#" | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+busybox echo "# The Awakening Of Your Android" | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+busybox echo "# STARTING UP OF THE NITRO X_SPARK : $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+busybox echo "# ORIGINAL MODE..." | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+busybox echo "#==============================================================#" | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+
+# Remount Partition =========================================#
+
+if
+if [ -e /data/ModBoost/XRemount.log ]; then
+busybox rm -f /data/ModBoost/XRemount.log
+fi;
+for i in $(busybox mount | busybox grep relatime | busybox cut -d " " -f3); do
+busybox sync;
+busybox mount -o rw,remount,noatime,nodiratime $i
+done
+mount >> /data/ModBoost/XREMOUNT.log
+then
+busybox echo "...Optimization EXT4 Partitions = Activated..." | tee -a $PMB; else
+busybox echo "...Optimization EXT4 Partitions = NOT Activated..." | tee -a $PMB;
+fi;
+
+# LMK Nitro X =========================================#
+
+busybox chmod 644 /sys/module/lowmemorykiller/parameters/minfree;
+busybox chmod 644 /sys/module/lowmemorykiller/parameters/adj;
+busybox echo "3072,6144,9216,14336,20480,25600" > /sys/module/lowmemorykiller/parameters/minfree;
+busybox	echo "0,3,6,9,12,15" > /sys/module/lowmemorykiller/parameters/adj;
+busybox chmod 444 /sys/module/lowmemorykiller/parameters/adj;
+busybox chmod 444 /sys/module/lowmemorykiller/parameters/minfree;
+
+if [ /sys/module/lowmemorykiller/parameters/adj=0,3,6,9,12,15 ]; then
+busybox echo "...Optimization LMK Nitro X = Activated..." | tee -a $PMB; else
+busybox echo "...Optimization LMK Nitro X = NOT Activated..." | tee -a $PMB;
+fi;
+
+# VM Tweaks Nitro X =========================================#
+
+busybox chmod 644 /proc/sys/*;
+
+busybox echo "0" > /proc/sys/vm/laptop_mode;
+busybox echo "0" > /proc/sys/vm/block_dump;
+busybox echo "1" > /proc/sys/vm/oom_dump_tasks;
+busybox echo "3" > /proc/sys/vm/page-cluster;
+busybox echo "5120" > /proc/sys/vm/min_free_kbytes;
+busybox echo "0" > /proc/sys/vm/oom_kill_allocating_task;
+busybox echo "50" > /proc/sys/vm/swappiness;
+busybox echo "70" > /proc/sys/vm/vfs_cache_pressure;
+busybox echo "1000" > /proc/sys/vm/dirty_expire_centisecs;
+busybox echo "2000" > /proc/sys/vm/dirty_writeback_centisecs;
+busybox echo "50" > /proc/sys/vm/dirty_background_ratio;
+busybox echo "50" > /proc/sys/vm/dirty_ratio;
+busybox echo "4" > /proc/sys/vm/min_free_order_shift;
+busybox echo "1" >/proc/sys/vm/overcommit_memory;
+busybox echo "50" >/proc/sys/vm/overcommit_ratio
+busybox echo "512" > /sys/devices/virtual/bdi/default/read_ahead_kb;
+busybox echo "10" > /proc/sys/fs/lease-break-time;
+busybox echo "0" > /proc/sys/vm/panic_on_oom;
+busybox echo "0" > /proc/sys/kernel/panic;
+busybox echo "0" > /proc/sys/kernel/panic_on_oops;
+busybox echo "3" > /proc/sys/vm/page-cluster;
+
+busybox chmod 444 /proc/sys/*;
+busybox sleep 1
+
+if [ /proc/sys/vm/min_free_kbytes=5120 ]; then
+busybox echo "...Optimization VM Nitro X = Activated..." | tee -a $PMB; else
+busybox echo "...Optimization VM Nitro X = NOT Activated..." | tee -a $PMB;
+fi;
+
+# I/O related tweaks =========================================#
+
+STL=`ls -d /sys/block/stl*`;
+BML=`ls -d /sys/block/bml*`;
+MMC=`ls -d /sys/block/mmc*`;
+ZRM=`ls -d /sys/block/zram*`;
+MTD=`ls -d /sys/block/mtd*`;
+RAM=`ls -d /sys/block/ram*`;
+LP=`ls -d /sys/block/loop*`;
+
+for i in $STL $BML $MMC $ZRM $MTD $RAM $LP; do
+
+busybox echo "0" > $i/queue/rotational
+busybox echo "1" > $i/queue/iosched/back_seek_penalty
+busybox echo "1000000000" > $i/queue/iosched/back_seek_max
+busybox echo "1" > $i/queue/iosched/low_latency
+busybox echo "1" > $i/queue/iosched/slice_idle
+busybox echo "8" > $i/queue/iosched/quantum
+busybox echo "4" > $i/queue/iosched/fifo_batch
+busybox echo "0" > $i/queue/rotational
+busybox echo "$X" > $i/queue/read_ahead_kb;
+busybox echo "$X" > $i/queue/nr_requests;
+busybox echo "1" >  $i/queue/rq_affinity;   
+busybox echo "0" > $i/queue/iostats;
+done
+
+busybox sleep 1
+
+if [ $i/queue/nr_requests=$X ]; then
+busybox echo "...Optimization Scheduler Adjustments = Activated..." | tee -a $PMB; else
+busybox echo "...Optimization Scheduler Adjustments = Not Activated..." | tee -a $PMB;
+fi;
+
+# Essentiel SetProp =========================================#
+
+setprop ro.max.fling_velocity 12000
+setprop ro.min.fling_velocity 8000
+setprop wifi.supplicant_scan_interval 180
+setprop windowsmgr.max_events_per_sec 90
+setprop persist.sys.purgeable_assets 1
+setprop profiler.force_disable_err_rpt 1
+setprop profiler.force_disable_ulog 1
+setprop ro.ril.transmitpower true
+setprop ro.ril.hep 1
+setprop ro.ril.disable.power.collapse 1
+setprop mot.proximity.delay 25
+setprop ro.telephony.call_ring.delay 0
+busybox rm /dev/log/main
+
+if [ -e /dev/log/main ]; then
+busybox echo "...Essentiel SetProp Nitro X = Not Activated..." | tee -a $PMB; else
+busybox echo "...Essentiel SetProp Nitro X = Activated..." | tee -a $PMB;
+fi;
+
+# Clean Up =========================================#
+busybox rm -f /dev/log/*;
+busybox rm -f /data/*.log;
+busybox rm -f /data/*.txt;
+busybox rm -f /data/log/*.log;
+busybox rm -f /data/log/*.txt;
+busybox rm -f /data/local/tmp/*;
+busybox rm -f /data/system/dropbox/*;
+busybox rm -f /data/system/usagestats/*;
+
+if [ -e /data/system/usagestats/* ]; then
+busybox echo "...Clean Up System = Not Activated..." | tee -a $PMB; else
+busybox echo "...Clean Up System = Activated..." | tee -a $PMB;
+fi;
+
+busybox echo "" | tee -a $PMB;
+busybox echo "#==============================================================#" | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+busybox echo "# END OF THE NITRO X_SPARK : $( date +"%m-%d-%Y %H:%M:%S" ) " | tee -a $PMB;
+busybox echo "" | tee -a $PMB;
+busybox echo "#==============================================================#" | tee -a $PMB;
