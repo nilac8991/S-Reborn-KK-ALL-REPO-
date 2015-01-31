@@ -124,3 +124,12 @@ com.qc.hardware=1
 debug.qc.hardware=true
 debug.qctwa.preservebuf=1
 debug.qctwa.statusbar=1
+
+#Audio Configuration
+af.resampler.quality=4
+ro.semc.xloud.supported=true
+persist.service.xloud.enable=1
+ro.somc.clearphase.supported=true
+persist.service.clearphase.enable=1
+ro.somc.sforce.supported=true
+"persist.service.sforce.enable=1"

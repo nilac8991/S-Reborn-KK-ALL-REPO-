@@ -10,6 +10,22 @@ Visit the official thread on XDA: http://forum.xda-developers.com/galaxy-s-i9000
         Based on Android 4.4        
 **************************************
 
+Release 3
+
+**System**
+
+- Merged latest changes made by CM (Nightly from 25/01/15)
+- Updated Stock Kernel
+- Fixed the known problems in Settings (Finally)
+- New Audio Configuration (build.prop)
+
+**XPERIA APPS**
+
+- Updated Walkman
+- Updated SoundEnhancement with some new changes
+- New Clear Audio configuartion by ibanez
+- Updated libs,framework and vendor files
+
 Release 2
 
 **System**
