@@ -1,0 +1,24 @@
+#!/system/bin/sh
+#Clear audio experience activation by ibanez7
+
+sleep 60
+
+# Keep Sony Clear audio+ technology in zone ram
+PPID=$(pidof com.sonyericsson.music)
+echo "-17" > /proc/$PPID/oom_adj
+renice -18 $PPID
+PPID=$(pidof com.sonyericsson.soundenhancement)
+echo "-17" > /proc/$PPID/oom_adj
+renice -18 $PPID
+
+echo "ibanez7clearaudioset"
+#setprop "";
+setprop af.resampler.quality "4";
+setprop ro.semc.xloud.supported "true";
+setprop persist.service.xloud.enable "1";
+setprop ro.somc.clearphase.supported "true";
+setprop persist.service.clearphase.enable "1";
+setprop ro.somc.sforce.supported "true";
+setprop persist.service.sforce.enable "1";
+
+echo "ibanez7clearaudioset Done."
