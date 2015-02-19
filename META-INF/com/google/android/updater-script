@@ -252,7 +252,7 @@ show_progress(0.200000, 0);
 endif;
 
 if
-file_getprop("/tmp/aroma-data/reborntweaks.prop","selected.0") == "3"
+file_getprop("/tmp/aroma-data/reborntweaks.prop","selected.0") == "2"
 then
 ui_print("Removing previously installed tweaks<<<<<");
 
