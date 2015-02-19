@@ -8,9 +8,7 @@ ui_print(" ");
 ui_print(" ");	   
 
 
-assert(getprop("ro.product.name") == "sreborn_galaxysmtd" || getprop("ro.product.device") == "GT-I9000" 
-    || getprop("ro.product.name") == "sreborn_vibrantmtd" || getprop("ro.product.device") == "SGH-T959" 
-    || getprop("ro.product.name") == "sreborn_ariesve" || getprop("ro.product.device") == "ariesve" 
+assert (getprop("ro.product.name") == "sreborn_ariesve" || getprop("ro.product.device") == "ariesve" 
     || getprop("ro.product.name") == "sreborn_ancora" || getprop("ro.product.device") == "ancora" 
     || abort("This package is only for \"S+ Reborn users!!\"; this is a \"" + getprop("ro.build.display.id") + "\ROM\"."););
 
