@@ -1,9 +1,11 @@
 ***S+ Reborn Users**
 
-The Reborn Tweaks usually used to be included in the ROM by default. 
-But from Release 12 i decided to make the ROM more simplistic with less 
-Blotware or something else and to leave the option to the user to decide this.
-In the next page you will two kind of Reborn Tweaks: Battery Saver and Performance, choose the one you desire...
+From Lolipop i decided to include again as default the Tweaks and this happened just because LP is 
+More heavy than KK so the ROM is more stable with the ones included
+But in the main time i decided to leave the choice to the user to install some tweaks-addon.
+These tweaks addons are featured with the Nitrox ones provided by.....  
+In the next page you will need to choose if you want to install these tweaks-addon or to uninstall them if 
+you installed them earlier.
 If you don't want to install any kind of these tweaks choose the default option.
 
 ********************
