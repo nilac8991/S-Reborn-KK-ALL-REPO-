@@ -28,10 +28,10 @@
 # Initializing Rom Information
 #
 ini_set("rom_name",             "Reborn Addons");
-ini_set("rom_version",          "3.5");
+ini_set("rom_version",          "3.7");
 ini_set("rom_author",           "nilac8991");
 ini_set("rom_device",           "All S+ Reborn supported devices");
-ini_set("rom_date",             "Jan, 25 2014");
+ini_set("rom_date",             "Feb, 19 2015");
 
 ##
 # Show static splash
@@ -122,20 +122,6 @@ textbox(
     resread("changelog.txt")
 );
 
-pleasewait("Checking UP ROM...");
-
-if sysprop("ro.product.name") == "ariesve" || sysprop("ro.product.name") == "SGH-T959" || sysprop("ro.product.name") == "GT-I9000"
-then 
-viewbox(
-    "Installation was successful!",
-    "<b>Sorry but these addons are only for the S+ Reborn Addons!</b>\n\n"+
-    "<b>Check back on the XDA Thread and install the ROM first</b>\n\n"+
-    "<#selectbg_g><b>Enjoy your Reborn Addons!</b></#>\n\n",
-    "@welcome"
-);
-
-
-
 ###################################################################################################################
 #
 # STEP 5 - Utility Xperia Apps
@@ -218,7 +204,7 @@ selectbox(
                               #Tweaks designed to get from the device the most of performance
 
 
-  "Reborn Tweaks", "Tweaks designed to provide a excelent balance between performance and battery consumption",1,
+  "Reborn Additional Tweaks", "The main Reborn tweaks are already included in the ROM but these ones are just "something more" and they are featured with the Nitrox ones ,1,
   "Reborn Tweaks Uninstall", "It's a script that allows you to remove the Installed Tweaks",0,
   "Balanced", "leave the ROM as it is in this moment",0
 
